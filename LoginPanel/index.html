@@ -74,7 +74,7 @@
                   <div class="ui-input__text">Почта</div>
                   <input type="text" class="ui-input__field" placeholder="Введите свой E-Mail">
                 </div>
-                <div class="ui-input" style="display: block;">
+                <div class="ui-input ui-input_hidden" id="mail-code">
                   <div class="ui-input__text">Код-подтверждения</div>
                   <input type="text" class="ui-input__field" placeholder="Введите код c почты">
                 </div>
@@ -89,9 +89,9 @@
                   </div>
                   <div class="ui-input">
                     <div class="ui-input__text">Повторите пароль</div>
-                    <input type="text" class="ui-input__field" placeholder="Повторите свой пароль">
+                    <input type="text"class="ui-input__field" placeholder="Повторите свой пароль">
                   </div>
-                  <div class="ui-input" style="display: block;">
+                  <div class="ui-input ui-input_hidden" id="promocode">
                     <div class="ui-input__text">Промокод</div>
                     <input type="text" class="ui-input__field" placeholder="Промокод, если есть">
                   </div>
@@ -103,12 +103,31 @@
       <div class="links">
         <div class="links__content">
           <div class="button">
-            <a href="#" class="login__btn auth-button">Создать</a>
+            <a href="#" class="login__btn auth-button" onclick="enter()">Создать</a>
           </div>
           <a href="#" class="links__btn">У меня уже есть аккаунт</a>
         </div> 
       </div>
     </div>
   </div>
+  <script>
+    function enter()
+    {
+      var code = document.getElementById('promocode');
+      var confirmMail = document.getElementById('mail-code');
+      var flx = document.getElementById('flx');
+      code.classList.add('ui-input_show');
+      confirmMail.classList.add('ui-input_show');
+      code.classList.remove('ui-input_hidden');
+      confirmMail.classList.remove('ui-input_hidden');
+      /*let _hei = flx.getBoundingClientRect().top;
+      code.style.marginBottom = _hei*-1 + "px";
+      code.style.display = "block";
+      confirmMail.style.display = "block";*/
+
+    }
+  </script>
+
+
   </body>
 </html>
