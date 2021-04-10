@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/LoginBrowser.js"></script>
+
     </head>
     <body>
       <div class="wrapper">
@@ -60,19 +62,20 @@
           <div class="register-form__header">
             <div class="register-form__header-text"><img src="img/register/logo.png" alt=""> Создание нового аккаунта</div>
           </div>
-          <div class="register-form__message-zone">
-              Ой, похоже этот Email уже существует
+          <div class="register-form__message-zone" id="register-form__message">
+
           </div>
+
           <div class="register-form__panel">
             <div class="register-form-block">
               <div class="register-form-block__content">
-                <div class="ui-input">
-                  <div class="ui-input__text">Логин</div>
-                  <input type="text" class="ui-input__field" placeholder="Придумайте свой логин">
+                <div class="ui-input" id="login">
+                  <div class="ui-input__text" >Логин</div>
+                  <input type="text" class="ui-input__field login__input" maxlength="15" placeholder="Придумайте свой логин">
                 </div>
-                <div class="ui-input">
-                  <div class="ui-input__text">Почта</div>
-                  <input type="text" class="ui-input__field" placeholder="Введите свой E-Mail">
+                <div class="ui-input" id="mail">
+                  <div class="ui-input__text" >Почта</div>
+                  <input type="text" class="ui-input__field mail__input" maxlength="30" placeholder="Введите свой E-Mail">
                 </div>
                 <div class="ui-input ui-input_hidden" id="mail-code">
                   <div class="ui-input__text">Код-подтверждения</div>
@@ -83,15 +86,15 @@
             <div class="register-form__panel">
               <div class="register-form-block">
                 <div class="register-form-block__content">
-                  <div class="ui-input">
+                  <div class="ui-input" id="pass">
                     <div class="ui-input__text">Пароль</div>
-                    <input type="text" class="ui-input__field" placeholder="Придумайте свой пароль">
+                    <input type="password" class="ui-input__field password__input" maxlength="25" placeholder="Придумайте свой пароль">
                   </div>
-                  <div class="ui-input">
-                    <div class="ui-input__text">Повторите пароль</div>
-                    <input type="text"class="ui-input__field" placeholder="Повторите свой пароль">
+                  <div class="ui-input" id="repass">
+                    <div class="ui-input__text" >Повторите пароль</div>
+                    <input type="password"class="ui-input__field password__input" maxlength="25" placeholder="Повторите свой пароль">
                   </div>
-                  <div class="ui-input ui-input_hidden" id="promocode">
+                  <div class="ui-input ui-input_hidden" id="promo-code">
                     <div class="ui-input__text">Промокод</div>
                     <input type="text" class="ui-input__field" placeholder="Промокод, если есть">
                   </div>
@@ -103,7 +106,7 @@
       <div class="links">
         <div class="links__content">
           <div class="button">
-            <a href="#" class="login__btn auth-button" onclick="enter()">Создать</a>
+            <a href="#" class="login__btn auth-button" onclick="CreateAccountBtn()">Создать</a>
           </div>
           <a href="#" class="links__btn">У меня уже есть аккаунт</a>
         </div> 
@@ -113,13 +116,6 @@
   <script>
     function enter()
     {
-      var code = document.getElementById('promocode');
-      var confirmMail = document.getElementById('mail-code');
-      var flx = document.getElementById('flx');
-      code.classList.add('ui-input_show');
-      confirmMail.classList.add('ui-input_show');
-      code.classList.remove('ui-input_hidden');
-      confirmMail.classList.remove('ui-input_hidden');
       /*let _hei = flx.getBoundingClientRect().top;
       code.style.marginBottom = _hei*-1 + "px";
       code.style.display = "block";
