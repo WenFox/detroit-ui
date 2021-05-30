@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 476 656" preserveAspectRatio="none">
+<defs>
+<style>.left-polygon{ filter: drop-shadow(0 0 5px #00c8ff); fill:#00c8ff;}
+.polygon-bg{opacity:0.7; filter: drop-shadow(0 0 3px #00c8ff);}
+.triangle-4,.triangle-5,.triangle-6{fill:#fff;}
+.triangle-4{opacity:0.04;}.triangle-5{opacity:0.02;}
+.triangle-6{opacity:0.03;}
+</style>
+</defs>
+<g id="Окно_2" data-name="Окно 2">
+	<polygon class="left-polygon" points="22 175 22 526 13 517 13 184.04 22 175"/>
+	<path id="bg" class="polygon-bg" d="M463,130V643H249a4,4,0,0,1-4-4l0-92.5a2.5,2.5,0,0,0-2.5-2.5h0a2.5,2.5,0,0,0-2.5,2.5V639a4,4,0,0,1-4,4H139L22,526V13H346Z"/>
+<g id="triangle"><polygon class="triangle-4" points="22 13 130 256 22 256 22 13"/><polygon class="triangle-4" points="463 643 463 337 247 643 463 643"/>
+<polygon class="triangle-4" points="463 130 310 256 310 13 346.76 13 463 130"/><polygon class="triangle-5" points="220 454 130 256 310 255.98 220 454"/>
+<polygon class="triangle-6" points="130 255 220 13 310 255 130 255"/><polygon class="triangle-6" points="220 454 139 643 22 526 22 382 220 454"/>
+<polygon class="triangle-6" points="311 256 413.25 408.89 221 454 311 256"/><polygon class="triangle-5" points="130 257 73.71 400.8 22 382.13 22 257 130 257"/>
+</g></g>
+</svg>
