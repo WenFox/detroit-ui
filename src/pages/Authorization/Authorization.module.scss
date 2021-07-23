@@ -1,0 +1,131 @@
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../assets/img/LoginPanel/background.png') 0 0/cover no-repeat;
+}
+
+.loginPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 70px;
+  @media screen and (max-height: 1075px) {
+    padding: 30px;
+    margin: 0 0 30px 0;
+  }
+  @media screen and (max-height: 805px) {
+    padding: 15px;
+    margin: 0 0 15px 0;
+  }
+
+}
+
+
+.header {
+  margin: 0 0 70px 0;
+  flex: 0 0 100%;
+
+  h1 {
+    color: #ffffff;
+    font-size: 160px;
+    text-transform: uppercase;
+    font-family: "GothamProMedium", serif;
+    letter-spacing: 8.93px;
+    font-weight: 900;
+    text-align: center;
+
+    span {
+      font-family: "Detroit", serif;
+      letter-spacing: -1.75px;
+      font-size: 160px;
+      @media screen and (max-height: 1075px) {
+        font-size: 104px;
+      }
+      @media screen and (max-height: 805px) {
+        font-size: 65px;
+      }
+    }
+
+    @media screen and (max-height: 1075px) {
+      font-size: 104px;
+    }
+    @media screen and (max-height: 805px) {
+      font-size: 65px;
+    }
+  }
+
+  h2 {
+    color: #ffffff;
+    font-family: "GothamPro", serif;
+    font-size: 75px;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 30px 0 50px 0;
+    @media screen and (max-height: 1075px) {
+      font-size: 48px;
+      padding: 15px 0 25px 0;
+    }
+    @media screen and (max-height: 805px) {
+      font-size: 26px;
+    }
+  }
+
+  h3 {
+    color: #ffffff;
+    font-family: "GothamPro", serif;
+    font-size: 35px;
+    text-align: center;
+    letter-spacing: 2.17px;
+    @media screen and (max-height: 1075px) {
+      font-size: 24px;
+    }
+    @media screen and (max-height: 805px) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-height: 1075px) {
+    margin: 0 0 30px 0;
+  }
+  @media screen and (max-height: 805px) {
+    margin: 0 0 10px 0;
+  }
+}
+
+
+.links {
+  color: #00a2ff;
+  font-family: "GothamPro", serif;
+  font-size: 25px;
+  @media screen and (max-height: 805px) {
+    font-size: 18px;
+  }
+}
+
+.authButton {
+  display: inline-block;
+  background: white;
+  padding: 15px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  /*======*/
+  color: #00a2ff;
+  font-family: "GothamPro", serif;
+  font-size: 33px;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+}
+
+.linksBtn {
+  display: inline;
+  background: none;
+  color: #00a2ff;
+  margin: 20px 40px;
+  font-size: 24px;
+  @media screen and (max-height: 805px) {
+    font-size: 24px;
+    padding: 8px 20px;
+  }
+}

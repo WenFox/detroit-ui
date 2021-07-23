@@ -1,0 +1,46 @@
+.input{
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+.title{
+  color: #00c8ff;
+  font-family: "GothamProRegular", serif;
+  font-size: inherit;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: left;
+  text-shadow: 0 0 40px #00c8ff, 0 0 55px #00c8ff, 0 0 75px #00c8ff, 2px 2px 2px rgba(206,89,55,0);
+  text-transform: uppercase;
+  &.error{
+    color: red;
+  }
+}
+.field{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #5f6368;
+  color: #fff;
+  /*font-family: 'Caveat', sans-serif;*/
+  font-family: "GothamProRegular", serif;
+  font-size: inherit;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  outline: none;
+  &.error{
+    border-bottom-color: red;
+  }
+  &:focus{
+    border-bottom: 1px solid #ffffff;
+    transition: .55s all;
+  }
+}
+
+.hidden{
+  opacity: 0;
+  max-height: 0;
+  max-width: 0;
+  transition: opacity 0.8s ease;
+}

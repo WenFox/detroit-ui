@@ -1,0 +1,103 @@
+@import "Authorization.module";
+
+.registerForm {
+  width: 780px;
+  margin: 0 0 40px 0;
+  font-size: 18px;
+  @media screen and (max-height: 805px) {
+    width: 680px;
+    margin: 0 0 20px 0;
+    font-size: 14px;
+  }
+
+  .registerHeader {
+    width: 100%;
+    height: 85px;
+
+    background: rgba(0, 0, 0, 0.349) url('../../assets/img/LoginPanel/register/reg-bg.svg') 0 0/cover no-repeat;
+    border-radius: 18px 18px 0 0;
+    border-bottom: #029cdb;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    @media screen and (max-height: 805px) {
+      height: 50px;
+    }
+
+    .headerText {
+      line-height: 85px;
+      color: #ffffff;
+      font-family: "GothamProRegular", serif;
+      font-size: 32px;
+      text-align: center;
+      vertical-align: middle;
+      text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 2px 2px 2px rgba(206, 89, 55, 0);
+      @media screen and (max-height: 805px) {
+        line-height: 50px;
+        font-size: 26px;
+      }
+
+      img {
+        position: relative;
+        left: 15px;
+        max-height: 85px;
+        @media screen and (max-height: 805px) {
+          max-height: 50px;
+        }
+      }
+    }
+  }
+
+  .regError {
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.349);
+    color: #ff1f1f;
+    font-family: "GothamProRegular", serif;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    @media screen and (max-height: 805px) {
+      padding: 10px 0;
+      font-size: 16px;
+    }
+  }
+
+  .regPanel {
+    display: flex;
+    width: 100%;
+
+    .regBlock {
+
+      flex: 1 0 50%;
+
+      background: rgba(0, 0, 0, 0.349);
+      border-radius: 0 0 18px 18px;
+      margin-right: 1px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .regContent{
+      width: 100%;
+      padding: 10px 30px;
+      input{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.animatedOn{
+  opacity: 0;
+  visibility: hidden;
+
+  width: 0px;
+  height: 0px;
+  transform: translateY(-50px);
+  //margin: 0 0 -100% 0;
+}
+.animatedOff{
+  opacity: 1;
+  visibility: visible;
+  transition: all  0.3s ease-in-out;
+  transform: translateY(0px);
+}

@@ -1,0 +1,126 @@
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../assets/img/LoginPanel/background.png') 0 0/cover no-repeat;
+}
+
+
+.hidden {
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+
+  &.left {
+    transform: translateX(800px);
+  }
+  &.right
+  {
+    transform: translateX(-800px);
+  }
+}
+
+.current {
+  transition: all 0.2s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.arrowButton {
+  align-self: center;
+
+  button {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 60px;
+    @media (max-width: 1550px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+}
+.header {
+  position: relative;
+  .headerTitle {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 107px;
+    text-transform: uppercase;
+    font-family: "GothamProMedium", serif;
+    letter-spacing: 8.93px;
+    font-weight: 900;
+
+    span {
+      font-family: "Detroit", serif;
+      letter-spacing: -1.75px;
+      font-size: 107px;
+    }
+  }
+  .headerSubtitle {
+    color: #ffffff;
+    font-family: "GothamPro", serif;
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 30px 0 50px 0;
+  }
+
+  .accountInfo {
+    position: absolute;
+    display: inline-block;
+    background: #000000 0 0 / cover url("../../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
+    border-radius: 10px;
+    padding: 14px;
+    //margin: 20px;
+    .row {
+      display: flex;
+      margin: 0 -5px;
+
+      .accountPicture {
+        max-height: 128px;
+        max-width: 128px;
+        padding: 0 5px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border: solid 1px #00c8ff;
+        }
+      }
+
+      .login {
+        color: #00c8ff;
+        font-family: "Gotham Pro", serif;
+        font-size: 19px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-shadow: 0 0 10px #00c8ff, 0 0 15px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
+      }
+
+      .donate {
+        display: inline-block;
+        color: #ffffff;
+        font-family: "Gotham Pro", serif;
+        font-size: 15px;
+        font-weight: 300;
+
+        &:after {
+          content: url("../../assets/img/LoginPanel/character-selector/donate.png");
+          max-width: 28px;
+          max-height: 28px;
+          position: relative;
+          top: 7px;
+        }
+      }
+    }
+  }
+}

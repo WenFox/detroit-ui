@@ -1,0 +1,214 @@
+.characterSlot {
+  background: url("../../assets/img/LoginPanel/character-selector/bg.svg") no-repeat;
+  width: 462px;
+  height: 651px;
+  color: #ffffff;
+  @media (max-width: 1550px) {
+    max-width: 350px;
+    max-height: 500px;
+    font-size: 10px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 20px 30px 30px;
+    font-size: 14px;
+    @media (max-width: 1550px) {
+      padding: 10px 20px 20px 30px;
+      font-size: 12px;
+    }
+  }
+}
+
+.unavailableSlot {
+  background: url("../../assets/img/LoginPanel/character-selector/bg_red.svg") no-repeat;
+}
+
+.characterName {
+  font-family: "GothamPro", serif;
+  font-size: 27px;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 25px 50px 25px 0px;
+  text-align: center;
+  margin: 0 0 20px 0;
+  @media (max-width: 1550px) {
+    font-size: 22px;
+    padding: 15px 30px 15px 0px;
+    margin: 0 0 10px 0;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    margin-left: -55px;
+    margin-top: -20px;
+    width: 50px;
+    height: 65px;
+    background: url("../../assets/img/LoginPanel/character-selector/logo.png") no-repeat;
+    background-size: cover;
+    @media (max-width: 1550px) {
+      width: 37px;
+      height: 47px;
+      margin-top: -10px;
+      margin-left: -35px;
+    }
+  }
+}
+
+.mainInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0 0 12px -5px;
+  /*margin-bottom: 12px;*/
+  .photo {
+    flex: 0 0 43%;
+    height: 100%;
+    text-align: left;
+    padding: 0 5px;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      text-align: center;
+      border: solid 1px #00c8ff;
+    }
+  }
+
+  .info {
+    flex: 0 1 65%;
+    max-width: 85%;
+    padding: 0 0 0 5px;
+  }
+}
+
+.about {
+  display: flex;
+  justify-content: space-around;
+  flex: 1 1 0; /* Увеличение размера для закрепа кнопок внизу */
+  @media (max-width: 1550px) {
+    margin-bottom: 10px;
+  }
+
+  .leftColumn {
+    flex: 0 0 50%;
+    padding: 0 10px 0 0;
+  }
+
+  .rightColumn {
+    flex: 0 0 50%;
+    padding: 0 0 0 10px;
+  }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    background: transparent;
+  }
+
+  .delete {
+    display: inline-block;
+    flex: 0 0 50%;
+    align-self: center;
+    text-align: center;
+    padding-left: 25%;
+
+    &:hover {
+      position: relative;
+      top: -3px;
+    }
+
+    img {
+      height: 50%;
+      width: 50%;
+    }
+  }
+
+  .play {
+    flex: 0 0 50%;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+  }
+}
+
+
+.createButton {
+  display: inline-block;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  /*======*/
+  color: #00a2ff;
+  font-family: "GothamPro", serif;
+  font-size: 33px;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+  @media (max-width: 1550px) {
+    font-size: 25px;
+  }
+}
+
+
+.slotFree, .slotClose {
+  font-family: "GothamPro", serif;
+  text-align: center;
+  flex: 1 0 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .title, .closeTitle {
+    font-size: 40px;
+    margin: 0 0 40px 55px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      margin-left: -55px;
+      margin-top: -10px;
+      width: 50px;
+      height: 65px;
+      background: url("../../assets/img/LoginPanel/character-selector/logo.png") no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .info {
+    font-size: 20px;
+    color: gray;
+  }
+
+  .closeTitle {
+    &:before {
+      background: url("../../assets/img/LoginPanel/character-selector/logo_red.png") no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+.create {
+  align-self: flex-end;
+  margin-right: 15px;
+  button{
+    background: transparent;
+  }
+}
+
+.item {
+  width: 100%;
+  margin-bottom: 15px;
+  @media (max-width: 1550px) {
+    margin-bottom: 8px;
+  }
+}

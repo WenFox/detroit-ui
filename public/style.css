@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "GothamProRegular";
+    src: url("./fonts/GothamPro-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "GothamProMedium";
+    src: url("./fonts/GothamPro-Medium.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "GothamPro";
+    src: url("./fonts/GothamPro-Light.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Detroit";
+    src: url("./fonts/Detroit.otf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body{
+
+    background-attachment: fixed;
+}
