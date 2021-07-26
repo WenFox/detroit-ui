@@ -1,0 +1,9 @@
+const constants = {
+    SHOW_AUTH: 'FORM_AUTHORIZATION',
+    SHOW_CHARACTER_SELECTOR: 'FORM_CHARACTER',
+    HIDE_CHARACTER_SELECTOR: 'HIDE_FORM_CHARACTER',
+    ADD_FORM: 'ADD_FORM',
+    SET_FORM: 'SET_FORM'
+};
+
+export default constants;

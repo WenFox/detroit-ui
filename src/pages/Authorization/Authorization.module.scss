@@ -116,6 +116,16 @@
   font-family: "GothamPro", serif;
   font-size: 33px;
   text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+
+  &:active{
+    transform: translateY(1px);
+  }
+
+  &:disabled{
+    /*box-shadow: none;
+    color: gray;
+    text-shadow: none;*/
+  }
 }
 
 .linksBtn {

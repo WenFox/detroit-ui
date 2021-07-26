@@ -24,8 +24,6 @@
   top: 50px;
 }
 
-
-
 .errorMessage{
   color: #ff1f1f;
   text-align: center;
@@ -34,82 +32,32 @@
   font-size: 20px;
   text-transform: none;
   font-family: "GothamProRegular", serif;
-  display: none;
 }
 @media screen and (max-height: 1075px) {
   .errorMessage{
     margin-top: -10px;
   }
 }
-/********************************************/
-.ui-input__field{
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #5f6368;
-  color: #fff;
-  /*font-family: 'Caveat', sans-serif;*/
-  font-family: "GothamProRegular", serif;
-  font-size: inherit;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  padding: 10px 0;
-  outline: none;
-}
-.ui-input__text{
-  color: #00c8ff;
-  font-family: "GothamProRegular", serif;
-  font-size: inherit;
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: normal;
-  line-height: normal;
-  text-align: left;
-  text-shadow: 0 0 40px #00c8ff, 0 0 55px #00c8ff, 0 0 75px #00c8ff, 2px 2px 2px rgba(206,89,55,0);
-  text-transform: uppercase;
-}
-
-.ui-input__field:focus{
-  border-bottom: 1px solid #ffffff;
-  transition: .55s all;
-}
-
-.ui-input_hidden{
-  opacity: 0;
-  max-height: 0;
-  max-width: 0;
-  transition: opacity 0.8s ease;
-  z-index: 0;
-}
-
-.ui-input_visible{
-  opacity: 1;
-  transition: opacity 0.8s ease;
-  z-index: 2;
-}
-/*===========Подсветка ошибок ввода =========*/
-.ui-input_error{
-  border-bottom-color: red;
-}
-.ui-input__text_error{
-  color: red;
-}
-/********************************************/
-
 .logotype{
   position: absolute;
   left: 85%;
   top: 42px;
+  &.animated{
+    img{
+      animation: rotateLogo 2s linear infinite reverse;
+      &:nth-child(2)
+      {
+        animation: rotateLogo 1s linear infinite normal;
+      }
+      &:nth-child(3)
+      {
+        animation: rotateLogo 3s linear infinite normal;
+      }
+    }
+  }
   img{
     position: absolute;
-    animation: rotateLogo 2s linear infinite reverse;
-    &:nth-child(2)
-    {
-      animation: rotateLogo 1s linear infinite normal;
-    }
-    &:nth-child(3)
-    {
-      animation: rotateLogo 3s linear infinite normal;
-    }
+
   }
 }
 /* ==================== Анимация логотипа ==================== */
