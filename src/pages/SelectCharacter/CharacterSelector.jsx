@@ -48,7 +48,7 @@ const CharacterSelector = ({data}) => {
                 {characters.map((item, index) =>
                     <div key={index}
                          className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer}`}>
-                        {item}{item}{item}
+                        {item}{item}
                     </div>)}
                 <div className={styles.arrowButton}>
                     <button

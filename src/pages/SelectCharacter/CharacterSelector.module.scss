@@ -1,3 +1,14 @@
+/*
+
+  Сдвиг до 2х Персонажей - W1800; (без сжатия)
+  Сдвиг до 1 персонажа - W1280(без сжатия)
+  Сдвиг до 1 персонажа - W1050(С сжатием)
+
+  ================LoginInfo==============
+  Сжимать логин при W1180
+ */
+
+
 .wrapper {
   position: fixed;
   width: 100vw;
@@ -40,10 +51,6 @@
     background-color: rgba(0, 0, 0, 0.0);
     font-size: 90px;
     opacity: 0.5;
-    @media (max-width: 1550px) {
-      width: 120px;
-      height: 120px;
-    }
   }
 
 }
@@ -78,20 +85,23 @@
   .accountInfo {
     position: absolute;
     display: inline-block;
-    background: #000000 0 0 / cover url("../../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
+    background: #000000 center / cover url("../../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
     border-radius: 10px;
-    padding: 14px;
+    padding: 20px;
     top: 40px;
     min-width: 250px;
+    max-width: 320px;
     //margin: 20px;
     .row {
       display: flex;
       margin: 0 -5px;
+      overflow: hidden;
 
       .accountPicture {
         max-height: 128px;
         max-width: 128px;
         padding: 0 5px;
+        flex: 0 0 auto;
 
         img {
           width: 100%;
