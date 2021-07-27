@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import styles from './Register.module.scss';
 
 import {Input} from '../../components/utils';
@@ -26,18 +27,26 @@ const Register = ({showLogin}) => {
         switch (e.currentTarget.name) {
             case 'login': {
                 setLogin(e.currentTarget.value);
+                if (regErrors.login)
+                    regErrors.login = false;
                 break;
             }
             case 'password': {
                 setPassword(e.currentTarget.value);
+                if (regErrors.password)
+                    regErrors.password = false;
                 break;
             }
             case 'rePassword': {
                 setRePassword(e.currentTarget.value);
+                if (regErrors.rePassword)
+                    regErrors.rePassword = false;
                 break;
             }
             case 'mail': {
                 setMail(e.currentTarget.value);
+                if (regErrors.mail)
+                    regErrors.mail = false;
                 break;
             }
             case 'promoCode': {
@@ -71,7 +80,7 @@ const Register = ({showLogin}) => {
             errors.mail = true;
             flag = true;
         }
-        if (password < 5 || password > 25) {
+        if (password.length < 5 || password.length > 25) {
             errors.password = true;
             errors.rePassword = true;
             flag = true;
@@ -83,9 +92,7 @@ const Register = ({showLogin}) => {
             setRegErrors(errors);
             setErrorText('Следующие поля заполнены некорректно!');
             return false;
-        }
-        else
-        {
+        } else {
             setStep(2);
             setErrorText('');
             //TODO: Отправить запрос на сервер
@@ -94,14 +101,18 @@ const Register = ({showLogin}) => {
 
     return (
         <div className={styles.loginPanel}>
+
             <div className={styles.header}>
                 <h1><span>D</span>E<span>T</span>ROI<span>T</span></h1>
                 <h2>ROLE PLAY</h2>
             </div>
             <div className={styles.registerForm}>
                 <div className={styles.registerHeader}>
-                    <div className={styles.headerText}><img src="img/register/logo.png" alt=""/> Создание нового
-                        аккаунта
+                    <div className={styles.headerText}>
+                        <img src="img/register/logo.png" alt=""/> Создание нового аккаунта
+                    </div>
+                    <div className={styles.version}>
+                        066.3
                     </div>
                 </div>
                 <div className={styles.regError}>
@@ -155,7 +166,12 @@ const Register = ({showLogin}) => {
                         <button className={`${styles.authButton} mb-30`} onClick={onClickRegisterButton}>Создать
                         </button>
                     </div>
-                    <button className={styles.linksBtn} onClick={showLogin}>У меня уже есть аккаунт</button>
+                    {
+                        step === 1 ?
+                            <button className={styles.linksBtn} onClick={showLogin}>У меня уже есть аккаунт</button> :
+                            <button className={styles.linksBtn} onClick={() => setStep(1)}>Изменить данные</button>
+                    }
+
                 </div>
             </div>
         </div>

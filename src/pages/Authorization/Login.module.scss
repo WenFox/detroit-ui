@@ -1,27 +1,30 @@
 @import "Authorization.module";
 
 .panel{
+  position: relative;
   height: 237px;
   width: 503px;
-  background: url('../../assets/img/LoginPanel/input-bg.svg') 0 0/cover no-repeat;
+  background: url('../../assets/img/LoginPanel/input-bg.svg') center/contain no-repeat;
   margin-bottom: 60px;
-  @media screen and (max-height: 1075px) {
+  @media screen and (max-height: $HD_MAX_HEIGHT) {
     margin-bottom: 30px;
   }
   input{
-    width: 354px;
+    width: 350px;
   }
 }
 
 .panelContent{
-  padding: 20px;
+  height: 100%;
+  padding: 27px 40px;
   position: relative;
-  font-size: 18px;
-}
-
-.panelPassword{
-  position: relative;
-  top: 50px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  input{
+    font-size: 18px;
+  }
 }
 
 .errorMessage{
@@ -33,7 +36,7 @@
   text-transform: none;
   font-family: "GothamProRegular", serif;
 }
-@media screen and (max-height: 1075px) {
+@media screen and (max-height: $HD_MAX_HEIGHT) {
   .errorMessage{
     margin-top: -10px;
   }

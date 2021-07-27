@@ -5,8 +5,8 @@ import styles from './Label.module.scss';
 const Label = ({text, value}) => {
     return (
         <div>
-            <div className={styles.text}>{text}</div>
-            <div className={styles.value}>{value}</div>
+            <label className={styles.text}>{text}</label>
+            <div className={styles.value}><span>{value}</span></div>
         </div>
     );
 }

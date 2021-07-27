@@ -7,8 +7,8 @@ const Input = ({name, type, title, placeholder, inputValue, onChangeValue, maxLe
     return (
         <div className={styles.input}>
             <div>
-                <div className={`${styles.title} ${error ? styles.error : ''}`}>{title}</div>
                 <label>
+                <div className={`${styles.title} ${error ? styles.error : ''}`}>{title}</div>
                     <input
                         name={name}
                         onChange={onChangeValue}

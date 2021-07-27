@@ -8,7 +8,7 @@
 
 .hidden {
   position: absolute;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
   visibility: hidden;
   opacity: 0;
 
@@ -32,12 +32,14 @@
   align-self: center;
 
   button {
-    width: 180px;
-    height: 180px;
+    /*text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 2px 2px 2px rgba(206, 89, 55, 0);*/
+    color:  #ffffff;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 60px;
+    background-color: rgba(0, 0, 0, 0.0);
+    font-size: 90px;
+    opacity: 0.5;
     @media (max-width: 1550px) {
       width: 120px;
       height: 120px;
@@ -79,6 +81,8 @@
     background: #000000 0 0 / cover url("../../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
     border-radius: 10px;
     padding: 14px;
+    top: 40px;
+    min-width: 250px;
     //margin: 20px;
     .row {
       display: flex;
@@ -94,6 +98,7 @@
           height: 100%;
           text-align: center;
           border: solid 1px #00c8ff;
+          box-shadow: 0 0 4px #00c8ff;
         }
       }
 
@@ -103,7 +108,7 @@
         font-size: 19px;
         font-weight: 500;
         margin-bottom: 5px;
-        text-shadow: 0 0 10px #00c8ff, 0 0 15px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
+        text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
       }
 
       .donate {
@@ -122,5 +127,13 @@
         }
       }
     }
+  }
+}
+
+.characterContainer{
+  display: flex;
+  margin-right: -60px;
+  &>div{
+    margin-right: 60px;
   }
 }

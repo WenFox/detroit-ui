@@ -7,7 +7,6 @@ import bridge from "../../bridge/bridge";
 
 const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job, PlayTime}) => {
 
-
     return (
         <div className={styles.characterSlot}>
             <div className={styles.container}>

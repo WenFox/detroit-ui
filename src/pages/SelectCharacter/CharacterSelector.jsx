@@ -20,7 +20,7 @@ const CharacterSelector = ({data}) => {
         characters[index] = <Character {...CharacterList[index]}/>
     });
 
-    return(
+    return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <div className={styles.accountInfo}>
@@ -43,11 +43,16 @@ const CharacterSelector = ({data}) => {
             </div>
             <div className={'d-flex justify-around'}>
                 <div className={styles.arrowButton}>
-                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ?  prev-1 : prev)}>&#10094;</button>
+                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}>&#10094;</button>
                 </div>
-                {characters.map((item, index) => <div key={index} className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''}`}>{item}</div>)}
+                {characters.map((item, index) =>
+                    <div key={index}
+                         className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer}`}>
+                        {item}{item}{item}
+                    </div>)}
                 <div className={styles.arrowButton}>
-                    <button onClick={() => setCurrentItem((prev) => prev < characters.length-1 ?  prev+1 : prev)}>&#10095;</button>
+                    <button
+                        onClick={() => setCurrentItem((prev) => prev < characters.length - 1 ? prev + 1 : prev)}>&#10095;</button>
                 </div>
             </div>
         </div>

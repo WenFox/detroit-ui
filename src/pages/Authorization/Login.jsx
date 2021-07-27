@@ -13,8 +13,7 @@ const Login = ({showReg}) => {
     const [message, setMessage] = React.useState('');
 
     const onChangeInput = (e) => {
-        switch (e.currentTarget.name)
-        {
+        switch (e.currentTarget.name) {
             case 'login': {
                 setLogin(e.currentTarget.value);
                 break;
@@ -27,16 +26,14 @@ const Login = ({showReg}) => {
                 break;
             }
         }
-    }
+    };
 
 
-    const setAuthState = React.useCallback( (status, message) => {
+    const setAuthState = React.useCallback((status, message) => {
         setIsLoading(false);
-        if(status)
-        {
+        if (status) {
 
-        }
-        else {
+        } else {
             setMessage(message);
         }
     }, []);
@@ -49,12 +46,10 @@ const Login = ({showReg}) => {
     }, [setAuthState]);
 
 
-
     const onClickLoginButton = () => {
         setIsLoading(true);
         EventManager.callServer('loginPlayer', login, password);
-        //TODO:Отправка запроса на сервер
-    }
+    };
 
     return (
         <div className={styles.loginPanel}>
@@ -68,21 +63,25 @@ const Login = ({showReg}) => {
             </div>
             <div className={styles.panel}>
                 <div className={styles.panelContent}>
-                    <Input name={'login'} inputValue={login} onChangeValue={onChangeInput} title={"Логин"} placeholder={"Введите свой логин"}/>
-                    <div className={styles.panelPassword}>
-                        <Input name={'password'} inputValue={password} onChangeValue={onChangeInput} title={"Пароль"} placeholder={"Введите свой пароль"}
-                               type={"password"}/>
-                    </div>
+                    <Input name={'login'} inputValue={login} onChangeValue={onChangeInput} title={"Логин"}
+                           placeholder={"Введите свой логин"}/>
+                    <Input name={'password'} inputValue={password} onChangeValue={onChangeInput} title={"Пароль"}
+                           placeholder={"Введите свой пароль"}
+                           type={"password"}/>
                     <div className={`${styles.logotype} ${isLoading ? styles.animated : ''}`}>
                         <img src="img/logo/1.png" alt=""/>
                         <img src="img/logo/2.png" alt=""/>
                         <img src="img/logo/3.png" alt=""/>
                     </div>
                 </div>
+                <div className={styles.version}>
+                    066.3
+                </div>
             </div>
             <div className={styles.links}>
-                <div className="text-center">
-                    <button disabled={isLoading} className={`${styles.authButton} mb-30`} onClick={onClickLoginButton}>Войти</button>
+                <div className="text-center mb-50">
+                    <button disabled={isLoading} className={styles.authButton} onClick={onClickLoginButton}>Войти
+                    </button>
                 </div>
                 <button disabled={isLoading} className={styles.linksBtn} onClick={showReg}>Регистрация</button>
                 <button disabled={isLoading} className={styles.linksBtn}>Забыли пароль?</button>
