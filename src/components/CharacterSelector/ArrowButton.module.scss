@@ -1,0 +1,12 @@
+.arrow{
+  &.left{
+    transform: rotate(180deg);
+  }
+  svg{
+    fill: none;
+    &:hover{
+      fill:#00c8ff;
+    }
+  }
+}
+

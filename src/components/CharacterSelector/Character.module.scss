@@ -14,7 +14,7 @@ $w1550: 1300px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 20px 20px 30px 30px;
+    padding: 20px 30px 30px 30px;
     font-size: 14px;
     @media (max-width: $w1550) {
       padding: 10px 20px 20px 30px;
@@ -86,7 +86,18 @@ $w1550: 1300px;
     flex: 0 1 65%;
     max-width: 85%;
     padding: 0 0 0 5px;
+
+    .item {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 15px;
+      @media (max-width: $w1550) {
+        margin-bottom: 8px;
+      }
+    }
   }
+
+
 }
 
 .about {
@@ -98,13 +109,20 @@ $w1550: 1300px;
   }
 
   .leftColumn {
-    flex: 0 0 35%;
+    flex: 0 0 50%;
     padding: 0 10px 0 0;
   }
 
   .rightColumn {
-    flex: 0 0  35%;
+    flex: 0 0 50%;
     padding: 0 0 0 10px;
+  }
+  .item {
+    max-width: 140px;
+    margin: 0 auto 15px auto;
+    @media (max-width: $w1550) {
+      margin-bottom: 8px;
+    }
   }
 }
 
@@ -114,7 +132,7 @@ $w1550: 1300px;
   justify-content: center;
   align-items: center;
 
-  button{
+  button {
     background: transparent;
   }
 
@@ -201,16 +219,9 @@ $w1550: 1300px;
 .create {
   align-self: flex-end;
   margin-right: 15px;
-  button{
+
+  button {
     background: transparent;
   }
 }
 
-.item {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 15px;
-  @media (max-width: $w1550) {
-    margin-bottom: 8px;
-  }
-}

@@ -4,6 +4,7 @@ import styles from './CharacterSelector.module.scss';
 
 import Character from "../../components/CharacterSelector/Character";
 import EmptySlot from "../../components/CharacterSelector/EmptySlot";
+import ArrowButton from "../../components/CharacterSelector/ArrowButton";
 
 const CharacterSelector = ({data}) => {
 
@@ -43,16 +44,17 @@ const CharacterSelector = ({data}) => {
             </div>
             <div className={'d-flex justify-around'}>
                 <div className={styles.arrowButton}>
-                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}>&#10094;</button>
+                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}><ArrowButton direction='left'/></button>
                 </div>
                 {characters.map((item, index) =>
                     <div key={index}
                          className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer}`}>
-                        {item}{item}
+                        {item}
                     </div>)}
                 <div className={styles.arrowButton}>
-                    <button
-                        onClick={() => setCurrentItem((prev) => prev < characters.length - 1 ? prev + 1 : prev)}>&#10095;</button>
+                    <button onClick={() => setCurrentItem((prev) => prev < characters.length - 1 ? prev + 1 : prev)}>
+                        <ArrowButton/>
+                    </button>
                 </div>
             </div>
         </div>
