@@ -1,12 +1,19 @@
 /*
 
-  Сдвиг до 2х Персонажей - W1800; (без сжатия)
+  Сдвиг до 2х Персонажей - W1800; (без сжатия) 1400 c сжатием
   Сдвиг до 1 персонажа - W1280(без сжатия)
   Сдвиг до 1 персонажа - W1050(С сжатием)
 
   ================LoginInfo==============
   Сжимать логин при W1180
  */
+
+$MIDDLE_MAX_WIDTH: 1840px;
+$LOW_MAX_WIDTH: 1380px;
+
+$MIDDLE_MAX_HEIGHT: 820px;
+$LOW_MAX_HEIGHT: 740px;
+$ULTRA_LOW_MAX_HEIGHT: 680px;
 
 
 .wrapper {
@@ -63,11 +70,23 @@
     font-family: "GothamProMedium", serif;
     letter-spacing: 8.93px;
     font-weight: 900;
+    margin-bottom: 30px;
+    @media (max-height: $MIDDLE_MAX_HEIGHT) {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+    @media (max-height: $LOW_MAX_HEIGHT) {
+      font-size: 70px;
+      margin-bottom: 15px;
+    }
+    @media (max-height: $ULTRA_LOW_MAX_HEIGHT) {
+      display: none;
+    }
 
     span {
       font-family: "Detroit", serif;
       letter-spacing: -1.75px;
-      font-size: 107px;
+      font-size: inherit;
     }
   }
   .headerSubtitle {
@@ -77,7 +96,17 @@
     letter-spacing: 10px;
     text-align: center;
     text-transform: uppercase;
-    padding: 30px 0 50px 0;
+    margin-bottom: 50px;
+    @media (max-height: $MIDDLE_MAX_HEIGHT) {
+      font-size: 35px;
+      margin-bottom: 40px;
+    }
+    @media (max-height: $LOW_MAX_HEIGHT) {
+      font-size: 30px;
+    }
+    @media (max-height: $ULTRA_LOW_MAX_HEIGHT) {
+      display: none;
+    }
   }
 
   .accountInfo {
@@ -89,11 +118,15 @@
     top: 40px;
     min-width: 250px;
     max-width: 320px;
+    @media (max-height: $MIDDLE_MAX_HEIGHT) {
+      padding: 10px;
+      top: 20px
+    }
+
     //margin: 20px;
     .row {
       display: flex;
       margin: 0 -5px;
-      overflow: hidden;
 
       .accountPicture {
         max-height: 128px;
@@ -117,6 +150,10 @@
         font-weight: 500;
         margin-bottom: 5px;
         text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
+        overflow: hidden;
+        @media (max-height: $MIDDLE_MAX_HEIGHT) {
+          font-size: 14px;
+        }
       }
 
       .donate {
@@ -125,6 +162,9 @@
         font-family: "Gotham Pro", serif;
         font-size: 15px;
         font-weight: 300;
+        @media (max-height: $MIDDLE_MAX_HEIGHT) {
+          font-size: 13px;
+        }
 
         &:after {
           content: url("../../assets/img/LoginPanel/character-selector/donate.png");
@@ -140,7 +180,19 @@
 
 .characterContainer{
   margin-right: -60px;
+  @media (max-width: $MIDDLE_MAX_WIDTH) {
+    margin-right: -40px;
+  }
+  @media (max-width: $LOW_MAX_WIDTH) {
+    margin-right: -20px;
+  }
   &>div{
     margin-right: 60px;
+    @media (max-width: $MIDDLE_MAX_WIDTH) {
+      margin-right: 40px;
+    }
+    @media (max-width: $LOW_MAX_WIDTH) {
+      margin-right: 20px;
+    }
   }
 }

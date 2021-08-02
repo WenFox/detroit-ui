@@ -5,7 +5,7 @@ import Label from "../utils/Label";
 import btnDelete from "../../assets/img/LoginPanel/character-selector/btn_delete.svg"
 import bridge from "../../bridge/bridge";
 
-const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job, PlayTime}) => {
+const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job, PlayTime, Rang}) => {
 
     return (
         <div className={styles.characterSlot}>
@@ -49,7 +49,7 @@ const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job,
                             <Label text="Работа" value={Job}/>
                         </div>
                         <div className={styles.item}>
-                            <Label text="Дата создания" value="10.11.2021"/>
+                            <Label text="Ранг" value={Rang}/>
                         </div>
                     </div>
                 </div>
@@ -75,8 +75,9 @@ Character.propTypes = {
     BankMoney: PropTypes.number,
     Money: PropTypes.number,
     Exp: PropTypes.number,
-    Faction: PropTypes.number,
-    Job: PropTypes.number,
+    Faction: PropTypes.string,
+    Rang: PropTypes.string,
+    Job: PropTypes.string,
     PlayTime: PropTypes.number
 };
 

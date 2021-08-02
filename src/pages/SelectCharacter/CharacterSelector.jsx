@@ -48,8 +48,8 @@ const CharacterSelector = ({data}) => {
                 </div>
                 {characters.map((item, index) =>
                     <div key={index}
-                         className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer}`}>
-                        {item}
+                         className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer} d-flex`}>
+                        {item}{item}
                     </div>)}
                 <div className={styles.arrowButton}>
                     <button onClick={() => setCurrentItem((prev) => prev < characters.length - 1 ? prev + 1 : prev)}>

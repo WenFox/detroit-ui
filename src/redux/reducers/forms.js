@@ -1,6 +1,5 @@
 import constants from "../constants";
 import Authorization from '../../pages/Authorization';
-import CharacterSelector from "../../pages/SelectCharacter/CharacterSelector";
 const initState = [
     <Authorization/>
 ];
