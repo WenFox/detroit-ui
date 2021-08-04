@@ -6,21 +6,31 @@ import Character from "../../components/CharacterSelector/Character";
 import EmptySlot from "../../components/CharacterSelector/EmptySlot";
 import ArrowButton from "../../components/CharacterSelector/ArrowButton";
 
+//TODO:Оптимизация ре-рендеров (например при сдвиге слайдера!);
 const CharacterSelector = ({data}) => {
 
     const [currentItem, setCurrentItem] = React.useState(0);
     const {Login, Donate, FreeSlots, CharacterList} = JSON.parse(data);
     const characters = [
-        <EmptySlot available={FreeSlots >= 1}/>,
-        <EmptySlot available={FreeSlots >= 2}/>,
-        <EmptySlot available={FreeSlots >= 3}/>,
-        <EmptySlot available={FreeSlots >= 4}/>,
-        <EmptySlot available={FreeSlots >= 5}/>
+        <EmptySlot key={1} available={FreeSlots >= 1}/>,
+        <EmptySlot key={2} available={FreeSlots >= 2}/>,
+        <EmptySlot key={3} available={FreeSlots >= 3}/>,
+        <EmptySlot key={4} available={FreeSlots >= 4}/>,
+        <EmptySlot key={5} available={FreeSlots >= 5}/>,
+        <EmptySlot key={6} available={FreeSlots >= 6}/>
     ];
     CharacterList.forEach((character, index) => {
-        characters[index] = <Character {...CharacterList[index]}/>
+        characters[index] = <Character {...CharacterList[index]} key={character.Name}/>
     });
 
+    const chunks = characters.reduce((chunks, value, index) => {
+        const chunkIndex = Math.floor(index / 3);
+        if (!chunks[chunkIndex]) {
+            chunks[chunkIndex] = [];
+        }
+        chunks[chunkIndex].push(value);
+        return chunks;
+    }, []);
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -46,13 +56,13 @@ const CharacterSelector = ({data}) => {
                 <div className={styles.arrowButton}>
                     <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}><ArrowButton direction='left'/></button>
                 </div>
-                {characters.map((item, index) =>
+                {chunks.map((item, index) =>
                     <div key={index}
                          className={`${currentItem === index ? styles.current : styles.hidden} ${currentItem < index ? styles.left : currentItem > index ? styles.right : ''} ${styles.characterContainer} d-flex`}>
-                        {item}{item}
+                        {item}
                     </div>)}
                 <div className={styles.arrowButton}>
-                    <button onClick={() => setCurrentItem((prev) => prev < characters.length - 1 ? prev + 1 : prev)}>
+                    <button onClick={() => setCurrentItem((prev) => prev < chunks.length - 1 ? prev + 1 : prev)}>
                         <ArrowButton/>
                     </button>
                 </div>
