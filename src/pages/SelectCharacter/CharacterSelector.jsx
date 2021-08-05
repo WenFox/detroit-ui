@@ -1,4 +1,5 @@
 import React from "react";
+import {useWindowWidth} from "@react-hook/window-size";
 
 import styles from './CharacterSelector.module.scss';
 
@@ -9,6 +10,8 @@ import ArrowButton from "../../components/CharacterSelector/ArrowButton";
 //TODO:Оптимизация ре-рендеров (например при сдвиге слайдера!);
 const CharacterSelector = ({data}) => {
 
+    const displayWidth = useWindowWidth();
+    const characterPageCount = displayWidth >= 1300 ? 3 : displayWidth > 900 ? 2 : 1;
     const [currentItem, setCurrentItem] = React.useState(0);
     const {Login, Donate, FreeSlots, CharacterList} = JSON.parse(data);
     const characters = [
@@ -24,13 +27,14 @@ const CharacterSelector = ({data}) => {
     });
 
     const chunks = characters.reduce((chunks, value, index) => {
-        const chunkIndex = Math.floor(index / 3);
+        const chunkIndex = Math.floor(index / characterPageCount);
         if (!chunks[chunkIndex]) {
             chunks[chunkIndex] = [];
         }
         chunks[chunkIndex].push(value);
         return chunks;
     }, []);
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
