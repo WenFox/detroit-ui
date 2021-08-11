@@ -10,14 +10,11 @@
 
 .messageBox {
   min-width: 450px;
-  max-width: 50%;
+  max-width: 70%;
   background: rgb(255, 255, 255);
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0.7) 100%);
   border-radius: 8px;
   overflow: hidden;
-  @media(min-width: 2500px) {
-    max-width: 870px;
-  }
 }
 
 .title {
@@ -32,14 +29,14 @@
     height: 100%;
     width: 100%;
     font-family: "Gotham Pro", serif;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     vertical-align: middle;
     @media(min-width: 2500px) {
-      font-size: 36px;
+      font-size: 32px;
     }
     @media (max-width: 1100px) {
-      font-size: 28px;
+      font-size: 26px;
     }
   }
 }
@@ -53,27 +50,31 @@
     margin: 0 auto 20px;
     font-family: "Gotham Pro", serif;
     text-align: justify;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
+    white-space: pre-line;
     @media (max-width: 1100px) {
-      font-size: 20px;
+      font-size: 18px;
+    }
+    @media(min-width: 2500px) {
+      font-size: 22px;
     }
   }
   .buttons{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
     .button {
       display: block;
-      flex: 1 0 0;
-      padding: 10px 0;
-      margin: 30px 50px;
+      flex: 0 1 40%;
+      padding: 10px 20px;
+      margin: 0 50px 30px;
       background: url('../../assets/img/Dialogs/button.svg'), radial-gradient(circle, rgba(0, 71, 103, 1) 0%, rgba(0, 0, 0, 1) 100%);
       border-radius: 8px;
       text-align: center;
       max-width: 200px;
       font-family: "Gotham Pro", serif;
-      font-size: 22px;
+      font-size: 20px;
       color: white;
 
       &:hover {
@@ -85,10 +86,10 @@
   }
 
     @media(min-width: 2500px) {
-      font-size: 26px;
+      font-size: 22px;
     }
     @media (max-width: 1100px) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 }

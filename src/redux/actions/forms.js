@@ -20,5 +20,5 @@ export const showCharacterSelector = (data) => ({
 
 export const hideAuthorization = () => ({
    type: constants.HIDE_CHARACTER_SELECTOR,
-    payload: ''
+   payload: ''
 });

@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import styles from './Character.module.scss'
 import Label from "../utils/Label";
 import btnDelete from "../../assets/img/LoginPanel/character-selector/btn_delete.svg"
-import bridge from "../../bridge/bridge";
+import EventManager from "../../bridge/bridge";
 
 const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job, PlayTime, Rang}) => {
+
+    const deleteCharacter = () => {
+        EventManager.callServer('deleteCharacter', Name);
+    }
 
     return (
         <div className={styles.characterSlot}>
@@ -55,11 +59,11 @@ const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job,
                 </div>
                 <div className={styles.buttons}>
                     <div className={styles.delete}>
-                        <button><img src={btnDelete} alt="delete"/></button>
+                        <button onClick={deleteCharacter}><img src={btnDelete} alt="delete"/></button>
                     </div>
                     <div className={styles.play}>
-                        <button>
-                            <div className={styles.createButton} onClick={() => {bridge.callServer('startPlayAtCharacter', Name)}}>Играть</div>
+                        <button onClick={() => {EventManager.callServer('startPlayAtCharacter', Name)}}>
+                            <div className={styles.createButton}>Играть</div>
                         </button>
                     </div>
                 </div>
