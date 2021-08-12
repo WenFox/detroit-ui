@@ -17,12 +17,13 @@ export const playerEvents = (dispatch, getState) => {
         dispatch(hideAuthorization());
     });
 
-    EventManager.on('showMessageBox', (dialog, ...props) => {
-        dispatch(showMessageBox(dialog, ...props));
+    EventManager.on('showMessageBox', (dialog, data) => {
+        console.log(dialog, data);
+        dispatch(showMessageBox(dialog, data));
     });
 
-    EventManager.on('onDialogResponse', (dialog, inputText, response) => {
-        bridge.callServer('onDialogResponse', dialog, inputText, response);
+    EventManager.on('onDialogResponse', (dialog, inputText, response, data) => {
+        bridge.callServer('onDialogResponse', dialog, inputText, response, JSON.stringify(data));
         dispatch(closeDialog());
     });
 

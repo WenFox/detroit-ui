@@ -4,7 +4,7 @@ import EventManager from "../../bridge/bridge";
 
 import styles from './MessageBox.module.scss';
 
-const MessageBox = ({children, title, button1, button2, dialogId}) => {
+const MessageBox = ({children, title, button1, button2, dialogId, data}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.messageBox}>
@@ -16,10 +16,10 @@ const MessageBox = ({children, title, button1, button2, dialogId}) => {
                 <div className={styles.content}>
                     <div className={styles.text}>{children}</div>
                     <div className={styles.buttons}>
-                        <button className={styles.button} onClick={() => EventManager.call('onDialogResponse',dialogId, null, true)}><span>{button1}</span></button>
+                        <button className={styles.button} onClick={(event) => {event.preventDefault(); EventManager.call('onDialogResponse',dialogId, null, true, data)}}><span>{button1}</span></button>
                         {
                             button2 &&
-                            <button className={styles.button} onClick={() => EventManager.call('onDialogResponse',dialogId, null, false)}><span>{button2}</span></button>
+                            <button className={styles.button}><span>{button2}</span></button>
                         }
                     </div>
                 </div>

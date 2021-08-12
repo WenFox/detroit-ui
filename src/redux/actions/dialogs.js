@@ -2,16 +2,20 @@ import constants from "../constants";
 import {dialogs} from "../../bridge/dialogs";
 import MessageBox from "../../components/Dialogs/MessageBox";
 
-export const showMessageBox = (dialog, ...props) => {
-    const data = dialogs(dialog, ...props);
+export const showMessageBox = (dialogId, data) => {
+    const dialog = dialogs(dialogId, data);
     return ({
         type: constants.SHOW_MESSAGE_BOX,
-        payload: <MessageBox
-            dialogId={data.dialogId}
-            title={data.title} button1={data.button1} button2={data.button2}
-            onClick={() => {
-            }}>{data.text}
-        </MessageBox>,
+        payload: (
+            <MessageBox
+                dialogId={dialog.dialogId}
+                title={dialog.title}
+                button1={dialog.button1}
+                button2={dialog.button2}
+                data={dialog.data}
+            >
+                {dialog.text}
+            </MessageBox>),
     })
 };
 export const showEditBox = (title, text, button1, button2) => ({
