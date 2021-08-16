@@ -4,6 +4,7 @@ import React from "react";
 import styles from './Register.module.scss';
 
 import {Input} from '../../components/utils';
+import EventManager from "../../bridge/bridge";
 
 const Register = ({showLogin}) => {
     const [errorText, setErrorText] = React.useState('');
@@ -22,6 +23,15 @@ const Register = ({showLogin}) => {
         mail: false,
         mailCode: false
     });
+
+    const showRegisterError = React.useCallback((message, field) => {
+        setErrorText(message);
+    }, []);
+
+    React.useEffect(() => {
+        EventManager.on('showRegisterError', showRegisterError);
+        return () => (EventManager.remove('showRegisterError', showRegisterError));
+    }, [showRegisterError]);
 
     const onChangeInput = (e) => {
         switch (e.currentTarget.name) {
@@ -93,8 +103,9 @@ const Register = ({showLogin}) => {
             setErrorText('Следующие поля заполнены некорректно!');
             return false;
         } else {
-            setStep(2);
-            setErrorText('');
+            //setStep(2);
+            //setErrorText('');
+            EventManager.callServer('registerAccount', login, password, mail);
             //TODO: Отправить запрос на сервер
         }
     };

@@ -6,6 +6,7 @@ import styles from './CharacterSelector.module.scss';
 import Character from "../../components/CharacterSelector/Character";
 import EmptySlot from "../../components/CharacterSelector/EmptySlot";
 import ArrowButton from "../../components/CharacterSelector/ArrowButton";
+import EventManager from "../../bridge/bridge";
 
 //TODO:Оптимизация ре-рендеров (например при сдвиге слайдера!);
 const CharacterSelector = ({data}) => {
@@ -13,6 +14,17 @@ const CharacterSelector = ({data}) => {
     const displayWidth = useWindowWidth();
     const characterPageCount = displayWidth >= 1300 ? 3 : displayWidth > 900 ? 2 : 1;
     const [currentItem, setCurrentItem] = React.useState(0);
+    const [isLoading, setIsLoading] = React.useState(false);
+
+    const setCharacterLoading = React.useCallback((state) => {
+        setIsLoading(state);
+    }, []);
+
+    React.useEffect(() => {
+        EventManager.on('setCharacterLoading', setCharacterLoading);
+        return () => (EventManager.remove('setCharacterLoading', setCharacterLoading));
+    }, [setCharacterLoading]);
+
     const {Login, Donate, FreeSlots, CharacterList} = JSON.parse(data);
     const characters = [
         <EmptySlot key={1} available={FreeSlots >= 1}/>,
@@ -25,7 +37,6 @@ const CharacterSelector = ({data}) => {
     CharacterList.forEach((character, index) => {
         characters[index] = <Character {...CharacterList[index]} key={character.Name}/>
     });
-
     const chunks = characters.reduce((chunks, value, index) => {
         const chunkIndex = Math.floor(index / characterPageCount);
         if (!chunks[chunkIndex]) {
@@ -37,6 +48,16 @@ const CharacterSelector = ({data}) => {
 
     return (
         <div className={styles.wrapper}>
+            {
+                isLoading && <div className={styles.loading}>
+                    <div className={styles.logotype}>
+                        <img src="img/logo/1.png" alt=""/>
+                        <img src="img/logo/2.png" alt=""/>
+                        <img src="img/logo/3.png" alt=""/>
+                    </div>
+                </div>
+            }
+
             <div className={styles.header}>
                 <div className={styles.accountInfo}>
                     <div className={styles.row}>
