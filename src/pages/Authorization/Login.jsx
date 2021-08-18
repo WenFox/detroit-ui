@@ -79,7 +79,7 @@ const Login = ({showReg}) => {
                 </div>
             </div>
             <div className={styles.links}>
-                <div className="text-center mb-50">
+                <div className="text-center">
                     <button disabled={isLoading} className={styles.authButton} onClick={onClickLoginButton}>Войти
                     </button>
                 </div>

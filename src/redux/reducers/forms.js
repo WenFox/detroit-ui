@@ -11,6 +11,7 @@ export const forms = (state = initState, actions) => {
                 actions.payload
             ]
         }
+
         case constants.HIDE_CHARACTER_SELECTOR: {
             return []
         }

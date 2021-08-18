@@ -6,7 +6,8 @@ const constants = {
     SET_FORM: 'SET_FORM',
     SHOW_MESSAGE_BOX: 'SHOW_MESSAGE_BOX',
     SHOW_EDIT_BOX: 'SHOW_EDIT_BOX',
-    CLOSE_DIALOG: 'CLOSE_DIALOG'
+    CLOSE_DIALOG: 'CLOSE_DIALOG',
+    SET_IS_LOADING: 'SET_IS_LOADING',
 };
 
 export default constants;

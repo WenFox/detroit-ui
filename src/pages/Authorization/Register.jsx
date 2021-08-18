@@ -3,10 +3,11 @@ import React from "react";
 
 import styles from './Register.module.scss';
 
-import {Input} from '../../components/utils';
+import {Input, Loading} from '../../components/utils';
 import EventManager from "../../bridge/bridge";
 
 const Register = ({showLogin}) => {
+
     const [errorText, setErrorText] = React.useState('');
     const [step, setStep] = React.useState(1);
     const [login, setLogin] = React.useState('');
@@ -15,7 +16,7 @@ const Register = ({showLogin}) => {
     const [mail, setMail] = React.useState('');
     const [emailCode, setEmailCode] = React.useState('');
     const [promoCode, setPromoCode] = React.useState('');
-
+    const [isLoading, setIsLoading] = React.useState(false);
     const [regErrors, setRegErrors] = React.useState({
         login: false,
         password: false,
@@ -24,14 +25,20 @@ const Register = ({showLogin}) => {
         mailCode: false
     });
 
+
     const showRegisterError = React.useCallback((message, field) => {
         setErrorText(message);
     }, []);
 
+
     React.useEffect(() => {
         EventManager.on('showRegisterError', showRegisterError);
-        return () => (EventManager.remove('showRegisterError', showRegisterError));
-    }, [showRegisterError]);
+        EventManager.on('setRegisterLoading', setIsLoading);
+        return () => {
+            EventManager.remove('showRegisterError', showRegisterError);
+            EventManager.remove('setRegisterLoading', setIsLoading);
+        };
+    }, [showRegisterError, setIsLoading]);
 
     const onChangeInput = (e) => {
         switch (e.currentTarget.name) {
@@ -80,7 +87,8 @@ const Register = ({showLogin}) => {
             login: false,
             password: false,
             rePassword: false,
-            mail: false
+            mail: false,
+            mailCode: false
         }
         if (!loginRegex.test(login)) {
             errors.login = true;
@@ -105,49 +113,51 @@ const Register = ({showLogin}) => {
         } else {
             //setStep(2);
             //setErrorText('');
+            setIsLoading(true);
             EventManager.callServer('registerAccount', login, password, mail);
-            //TODO: Отправить запрос на сервер
+            //TODO:Показ страницы ввода кода с почты и промокода
         }
     };
 
     return (
-        <div className={styles.loginPanel}>
-
-            <div className={styles.header}>
-                <h1><span>D</span>E<span>T</span>ROI<span>T</span></h1>
-                <h2>ROLE PLAY</h2>
-            </div>
-            <div className={styles.registerForm}>
-                <div className={styles.registerHeader}>
-                    <div className={styles.headerText}>
-                        <img src="img/register/logo.png" alt=""/> Создание нового аккаунта
-                    </div>
-                    <div className={styles.version}>
-                        066.3
-                    </div>
+        <>
+            {
+                isLoading && <Loading/>
+            }
+            <div className={styles.loginPanel}>
+                <div className={styles.header}>
+                    <h1><span>D</span>E<span>T</span>ROI<span>T</span></h1>
+                    <h2>ROLE PLAY</h2>
                 </div>
-                <div className={styles.regError}>
-                    {errorText}
-                </div>
-                <div className={styles.regPanel}>
-                    <div className={styles.regBlock}>
-
-                        <div className={styles.regContent}>
-                            <div className={step === 1 ? styles.animatedOff : styles.animatedOn}>
-                                <Input name='login' onChangeValue={onChangeInput} inputValue={login} title='Логин'
-                                       placeholder='Придумайте свой логин' error={regErrors.login}/>
-                                <Input name='mail' onChangeValue={onChangeInput} inputValue={mail}
-                                       error={regErrors.mail} title={"Почта"}
-                                       placeholder='Введите свой E-Mail'/>
-                            </div>
-                            <div className={step === 2 ? styles.animatedOff : styles.animatedOn}>
-                                <Input name='mailCode' onChangeValue={onChangeInput} inputState={emailCode}
-                                       error={regErrors.mailCode}
-                                       title='Код подтверждения' placeholder='Введите код с почты'/>
-                            </div>
+                <div className={styles.registerForm}>
+                    <div className={styles.registerHeader}>
+                        <div className={styles.headerText}>
+                            <img src="img/register/logo.png" alt=""/> Создание нового аккаунта
+                        </div>
+                        <div className={styles.version}>
+                            066.3
                         </div>
                     </div>
+                    <div className={styles.regError}>
+                        {errorText}
+                    </div>
                     <div className={styles.regPanel}>
+                        <div className={styles.regBlock}>
+                            <div className={styles.regContent}>
+                                <div className={step === 1 ? styles.animatedOff : styles.animatedOn}>
+                                    <Input name='login' onChangeValue={onChangeInput} inputValue={login} title='Логин'
+                                           placeholder='Придумайте свой логин' error={regErrors.login}/>
+                                    <Input name='mail' onChangeValue={onChangeInput} inputValue={mail}
+                                           error={regErrors.mail} title={"Почта"}
+                                           placeholder='Введите свой E-Mail'/>
+                                </div>
+                                <div className={step === 2 ? styles.animatedOff : styles.animatedOn}>
+                                    <Input name='mailCode' onChangeValue={onChangeInput} inputState={emailCode}
+                                           error={regErrors.mailCode}
+                                           title='Код подтверждения' placeholder='Введите код с почты'/>
+                                </div>
+                            </div>
+                        </div>
                         <div className={styles.regBlock}>
                             <div className={styles.regContent}>
                                 <div className={step === 1 ? styles.animatedOff : styles.animatedOn}>
@@ -170,22 +180,22 @@ const Register = ({showLogin}) => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className={styles.links}>
-                <div className="links__content">
-                    <div className="text-center">
-                        <button className={`${styles.authButton} mb-30`} onClick={onClickRegisterButton}>Создать
-                        </button>
+                <div className={styles.links}>
+                    <div className="links__content">
+                        <div className="text-center">
+                            <button className={styles.authButton} onClick={onClickRegisterButton}>Создать
+                            </button>
+                        </div>
+                        {
+                            step === 1 ?
+                                <button className={styles.linksBtn} onClick={showLogin}>У меня уже есть
+                                    аккаунт</button> :
+                                <button className={styles.linksBtn} onClick={() => setStep(1)}>Изменить данные</button>
+                        }
                     </div>
-                    {
-                        step === 1 ?
-                            <button className={styles.linksBtn} onClick={showLogin}>У меня уже есть аккаунт</button> :
-                            <button className={styles.linksBtn} onClick={() => setStep(1)}>Изменить данные</button>
-                    }
-
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

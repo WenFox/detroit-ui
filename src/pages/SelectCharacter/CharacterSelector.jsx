@@ -3,10 +3,11 @@ import {useWindowWidth} from "@react-hook/window-size";
 
 import styles from './CharacterSelector.module.scss';
 
+import EventManager from "../../bridge/bridge";
 import Character from "../../components/CharacterSelector/Character";
 import EmptySlot from "../../components/CharacterSelector/EmptySlot";
 import ArrowButton from "../../components/CharacterSelector/ArrowButton";
-import EventManager from "../../bridge/bridge";
+import {Loading} from "../../components/utils";
 
 //TODO:Оптимизация ре-рендеров (например при сдвиге слайдера!);
 const CharacterSelector = ({data}) => {
@@ -49,15 +50,8 @@ const CharacterSelector = ({data}) => {
     return (
         <div className={styles.wrapper}>
             {
-                isLoading && <div className={styles.loading}>
-                    <div className={styles.logotype}>
-                        <img src="img/logo/1.png" alt=""/>
-                        <img src="img/logo/2.png" alt=""/>
-                        <img src="img/logo/3.png" alt=""/>
-                    </div>
-                </div>
+                isLoading && <Loading/>
             }
-
             <div className={styles.header}>
                 <div className={styles.accountInfo}>
                     <div className={styles.row}>
@@ -79,7 +73,8 @@ const CharacterSelector = ({data}) => {
             </div>
             <div className={'d-flex justify-around'}>
                 <div className={styles.arrowButton}>
-                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}><ArrowButton direction='left'/></button>
+                    <button onClick={() => setCurrentItem((prev) => prev >= 1 ? prev - 1 : prev)}><ArrowButton
+                        direction='left'/></button>
                 </div>
                 {chunks.map((item, index) =>
                     <div key={index}

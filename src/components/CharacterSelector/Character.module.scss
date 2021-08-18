@@ -143,10 +143,14 @@ $w1550: 1840px;
     align-self: center;
     text-align: center;
     padding-left: 25%;
+
     button{
+      transition: transform ease-in-out .2s;
       &:hover {
-        position: relative;
-        top: -3px;
+        transform: translateY(-3px);
+      }
+      &:active{
+        transform: translateY(1px);
       }
     }
     img {
@@ -176,6 +180,9 @@ $w1550: 1840px;
   font-family: "GothamProRegular", serif;
   font-size: 33px;
   text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+  &:active{
+    transform: translateY(1px);
+  }
   @media (max-width: $w1550) {
     font-size: 25px;
     width: 120px;
