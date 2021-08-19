@@ -139,7 +139,7 @@
       &:last-child {
         margin-left: 1px;
         padding-left: 50px;
-        padding-right: -5px;
+        padding-right: 0px;
       }
       @media screen and (max-height: $HD_MAX_HEIGHT) {
         padding-right: 30px;

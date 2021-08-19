@@ -117,8 +117,16 @@ $HD_MAX_HEIGHT: 1040px;
   font-family: "GothamProRegular", serif;
   font-size: 33px;
   text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+  transition: all ease-in-out .3s;
+
+  &:hover{
+    transform: translateY(0px);
+  }
   &:active{
-    transform: translateY(1px);
+    transition: none;
+    transform: translateY(2px);
+    box-shadow: none;
+    background: #dcdcdc;
   }
 
   &:disabled{
