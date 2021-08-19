@@ -5,7 +5,6 @@ import 'macro-css';
 import {useSelector} from "react-redux";
 
 import EventManager from "./bridge/bridge";
-import {Loading} from "./components/utils";
 
 window.EventManager = EventManager;
 
@@ -13,7 +12,6 @@ function App() {
     //const dispatch = useDispatch();
     const forms = useSelector(({forms}) => forms);
     const dialogs = useSelector(({dialogs}) => dialogs)
-    const isLoading = useSelector(({loading}) => loading);
     return (
         <div className="App">
             {

@@ -40,13 +40,15 @@
 
 
 .registerForm {
-  //width: 780px;
   width: 900px;
   margin: 0 0 40px 0;
   @media screen and (max-height: 805px) {
     margin: 0 0 20px 0;
   }
   @media screen and (max-height: $HD_MAX_HEIGHT) {
+    width: 700px;
+  }
+  @media screen and (max-width: 990px) {
     width: 700px;
   }
 
@@ -102,20 +104,30 @@
     @media screen and (max-height: 805px) {
       padding: 10px 0;
       font-size: 16px;
-
     }
     @media screen and (max-height: $HD_MAX_HEIGHT) {
       height: 40px;
     }
+    @media screen and (max-width: 990px) {
+      padding: 10px 0;
+      font-size: 16px;
+      height: 40px;
+    }
+
+
   }
 
   .regPanel {
+    max-width: calc(100% - 2px);
     display: flex;
-    width: 100%;
     height: 300px;
     @media screen and (max-height: $HD_MAX_HEIGHT) {
       height: 220px;
     }
+    @media screen and (max-width: 990px) {
+      height: 220px;
+    }
+
 
     .regBlock {
       flex: 1 0 50%;
@@ -125,12 +137,18 @@
       padding-right: 50px;
 
       &:last-child {
-        margin-right: 0;
         margin-left: 1px;
         padding-left: 50px;
-        padding-right: 0;
+        padding-right: -5px;
       }
       @media screen and (max-height: $HD_MAX_HEIGHT) {
+        padding-right: 30px;
+        &:last-child {
+          padding-left: 30px;
+
+        }
+      }
+      @media screen and (max-width: 990px) {
         padding-right: 30px;
         &:last-child {
           padding-left: 30px;
@@ -162,7 +180,15 @@
           margin-bottom: 50px;
         }
       }
-
+      @media screen and (max-width: 990px) {
+        label {
+          font-size: 13px;
+        }
+        input {
+          font-size: 15px;
+          margin-bottom: 50px;
+        }
+      }
     }
   }
 }
@@ -171,6 +197,18 @@
   margin-bottom: 30px;
   @media screen and (max-height: 805px) {
     margin-bottom: 15px;
+  }
+  @media screen and (max-width: 990px) {
+    font-size: 30px;
+    padding: 8px 20px;
+    margin-bottom: 15px;
+  }
+}
+
+.linksBtn {
+  @media screen and (max-width: 990px) {
+    font-size: 22px;
+    padding: 8px 20px;
   }
 }
 
