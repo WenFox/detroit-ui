@@ -6,6 +6,7 @@
 
   ================LoginInfo==============
   Сжимать логин при W1180
+  TODO:Скрывать логин при низком разрешении
  */
 
 $MIDDLE_MAX_WIDTH: 1840px;
@@ -59,6 +60,15 @@ $ULTRA_LOW_MAX_HEIGHT: 680px;
   }
 
 }
+
+.loginPanel{
+  position: absolute;
+  top: 40px;
+  @media (max-height: $MIDDLE_MAX_HEIGHT) {
+    top: 20px
+  }
+}
+
 .header {
   position: relative;
   .headerTitle {
@@ -106,74 +116,6 @@ $ULTRA_LOW_MAX_HEIGHT: 680px;
     }
     @media (max-height: $ULTRA_LOW_MAX_HEIGHT) {
       display: none;
-    }
-  }
-
-  .accountInfo {
-    position: absolute;
-    display: inline-block;
-    background: #000000 center / cover url("../../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
-    border-radius: 10px;
-    padding: 20px;
-    top: 40px;
-    min-width: 250px;
-    max-width: 320px;
-    @media (max-height: $MIDDLE_MAX_HEIGHT) {
-      padding: 10px;
-      top: 20px
-    }
-
-    //margin: 20px;
-    .row {
-      display: flex;
-      margin: 0 -5px;
-
-      .accountPicture {
-        max-height: 128px;
-        max-width: 128px;
-        padding: 0 5px;
-        flex: 0 0 auto;
-
-        img {
-          width: 100%;
-          height: 100%;
-          text-align: center;
-          border: solid 1px #00c8ff;
-          box-shadow: 0 0 4px #00c8ff;
-        }
-      }
-
-      .login {
-        color: #00c8ff;
-        font-family: "Gotham Pro", serif;
-        font-size: 19px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
-        overflow: hidden;
-        @media (max-height: $MIDDLE_MAX_HEIGHT) {
-          font-size: 14px;
-        }
-      }
-
-      .donate {
-        display: inline-block;
-        color: #ffffff;
-        font-family: "Gotham Pro", serif;
-        font-size: 15px;
-        font-weight: 300;
-        @media (max-height: $MIDDLE_MAX_HEIGHT) {
-          font-size: 13px;
-        }
-
-        &:after {
-          content: url("../../assets/img/LoginPanel/character-selector/donate.png");
-          max-width: 28px;
-          max-height: 28px;
-          position: relative;
-          top: 7px;
-        }
-      }
     }
   }
 }

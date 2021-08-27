@@ -1,0 +1,55 @@
+
+.gender
+{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.block{
+  width: 539px;
+  height: 754px;
+  transition: transform ease-in-out .3s;
+  transform: translate3d(0,0,0);
+  &:hover{
+
+    transform: translateY(-20px);
+  }
+}
+.title{
+  font-family: "GothamPro", serif;
+  font-size: 40px;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px white, 0 0 10px white;
+}
+
+.male, .female
+{
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+
+}
+.male
+{
+  background: url("../../assets/img/CharacterEditor/male_bg.svg") center/contain no-repeat;
+  .title{
+    margin-left: 100px;
+  }
+}
+.female{
+  background: url("../../assets/img/CharacterEditor/female_bg.svg") center/contain no-repeat;
+  .title
+  {
+    margin-left: 200px;
+  }
+}
+
+.preview{
+  text-align: center;
+  margin-top: 40px;
+}
+
+

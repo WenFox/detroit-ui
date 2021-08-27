@@ -8,6 +8,7 @@ import Character from "../../components/CharacterSelector/Character";
 import EmptySlot from "../../components/CharacterSelector/EmptySlot";
 import ArrowButton from "../../components/CharacterSelector/ArrowButton";
 import {Loading} from "../../components/utils";
+import AccountInfo from "../../components/AccountInfo";
 
 //TODO:Оптимизация ре-рендеров (например при сдвиге слайдера!);
 const CharacterSelector = ({data}) => {
@@ -53,20 +54,8 @@ const CharacterSelector = ({data}) => {
                 isLoading && <Loading/>
             }
             <div className={styles.header}>
-                <div className={styles.accountInfo}>
-                    <div className={styles.row}>
-                        <div className={styles.accountPicture}>
-                            <img src="img/character-picture/acc-image.png" alt="avatar"/>
-                        </div>
-                        <div className="pt-5 pb-5">
-                            <div className={styles.login}>
-                                {Login}
-                            </div>
-                            <div className={styles.donate}>
-                                Баланс: {Donate}
-                            </div>
-                        </div>
-                    </div>
+                <div className={styles.loginPanel}>
+                    <AccountInfo login={Login} donate={Donate}/>
                 </div>
                 <div className={styles.headerTitle}><span>D</span>e<span>t</span>roi<span>t</span></div>
                 <div className={styles.headerSubtitle}>Role Play</div>

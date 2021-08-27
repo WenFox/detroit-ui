@@ -1,0 +1,90 @@
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.block{
+  width: 100%;
+  position: relative;
+  padding-bottom: 2px;
+  margin-right: 5px;
+  &:last-child{
+    margin-right: 0;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #00c8ff;
+    border-radius: 25px;
+    border: solid 0.5px #00c8ff;
+    box-shadow: 0 0 5px #00c8ff;
+  }
+
+  .serverName{
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    text-align: center;
+    &:before{
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      content: "";
+    }
+    h1{
+      font-family: "GothamProMedium", serif;
+      font-size : 37px;
+      line-height : 45px;
+      color: white;
+    }
+    h2{
+      font-family: "GothamPro", serif;
+      color: white;
+      font-size: 23px;
+    }
+  }
+}
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  //margin: 0 -25px;
+  .tab{
+    font-family: "GothamPro", serif;
+    font-size : 37px;
+    line-height : 44.64px;
+    color : #57494e;
+    text-transform: uppercase;
+    margin: 0 12px;
+    background: transparent;
+    &:hover{
+      color: white;
+      text-shadow: 0 0 5px white, 0 0 10px white;
+      transition: color .5s, text-shadow .5s;
+    }
+    &.active{
+      position: relative;
+      color: white;
+      text-shadow: 0 0 5px white, 0 0 10px white;
+      &:after{
+        position: absolute;
+        bottom: -2px;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: white;
+        border-radius: 25px;
+        border: solid 0.5px white;
+        box-shadow: 0 0 5px white;
+        content: "";
+      }
+    }
+
+  }
+}

@@ -1,0 +1,24 @@
+<svg width="539" height="754" viewBox="0 0 539 754" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="0" stdDeviation="3"
+                          flood-color="#00c8ff"/>
+        </filter>
+    </defs>
+    <path filter="url(#shadow)" d="M527.6 194.64V613.41L538.34 602.67V205.43L527.6 194.64Z" fill="#00C8FF"/>
+    <path filter="url(#shadow)" d="M527.6 194.64V613.41L538.34 602.67V205.43L527.6 194.64Z" stroke="#00C8FF" stroke-miterlimit="10"/>
+    <path filter="url(#shadow)" d="M256.8 753H1.46V140.96L141.05 1.37H527.6V613.41L388.01 753H272.28H256.8Z" stroke="#00C8FF" stroke-miterlimit="10"/>
+    <path opacity="0.7" d="M272.28 753H388.01L527.6 613.41V1.37H141.05L1.46 140.96V753H256.8" fill="black"/>
+    <path opacity="0.5" d="M271.27 753.85H387L526.59 614.26V2.22H140.04L0.450001 141.81V753.85H255.79" fill="black"/>
+    <g opacity="0.6">
+        <path filter="url(#shadow)" opacity="0.6" d="M527.6 1.37V54.13L89 54.1L141.73 1.37H527.6Z" stroke="#00C8FF" stroke-miterlimit="10"/>
+    </g>
+    <path opacity="0.04" d="M527.6 1.37L398.75 291.28H527.6V1.37Z" fill="white"/>
+    <path opacity="0.04" d="M1.46 753V387.92L259.16 753H1.46Z" fill="white"/>
+    <path opacity="0.04" d="M1.46 140.96L184 291.28V1.37H140.14L1.46 140.96Z" fill="white"/>
+    <path opacity="0.02" d="M291.37 527.51L398.75 291.28L184 291.25L291.37 527.51Z" fill="white"/>
+    <path opacity="0.03" d="M398.75 290.09L291.37 1.37L184 290.09H398.75Z" fill="white"/>
+    <path opacity="0.03" d="M291.37 527.51L388.01 753L527.6 613.41V441.61L291.37 527.51Z" fill="white"/>
+    <path opacity="0.03" d="M182.8 291.28L60.81 473.69L290.18 527.51L182.8 291.28Z" fill="white"/>
+    <path opacity="0.02" d="M398.75 292.48L465.91 464.04L527.6 441.76V292.48H398.75Z" fill="white"/>
+</svg>
