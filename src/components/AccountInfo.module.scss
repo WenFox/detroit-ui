@@ -6,14 +6,11 @@ $MIDDLE_MAX_HEIGHT: 820px;
   display: inline-block;
   background: black url("../assets/img/LoginPanel/login-bg.svg") center/cover no-repeat;
   border-radius: 0 10px 10px 0;
-  padding: 10px 20px;
-  min-width: 250px;
+  padding: 10px 40px 10px 20px;
+  min-width: 200px;
   max-width: 320px;
-  @media (max-height: $MIDDLE_MAX_HEIGHT) {
-    padding: 10px;
-  }
+  overflow: hidden;
 
-  //margin: 20px;
   .row {
     display: flex;
     margin: 0 -5px;
@@ -35,6 +32,7 @@ $MIDDLE_MAX_HEIGHT: 820px;
     }
 
     .login {
+      flex: 1;
       color: #00c8ff;
       font-family: "Gotham Pro", serif;
       font-size: 19px;
@@ -51,7 +49,6 @@ $MIDDLE_MAX_HEIGHT: 820px;
       font-size: 15px;
       font-weight: 300;
 
-
       &:after {
         content: url("../assets/img/LoginPanel/character-selector/donate.png");
         max-width: 28px;
@@ -60,6 +57,7 @@ $MIDDLE_MAX_HEIGHT: 820px;
         top: 7px;
       }
     }
+
     @media(max-width: $HIGH_WIDTH) {
       .login {
         font-size: 16px;
@@ -69,15 +67,15 @@ $MIDDLE_MAX_HEIGHT: 820px;
       }
     }
     @media(max-width: $MEDIUM_WIDTH) {
-      .login{
+      .login {
         font-size: 15px;
       }
-      .donate{
+      .donate {
         font-size: 12px;
       }
     }
     @media(max-width: $HD_WIDTH) {
-      .login{
+      .login {
         font-size: 14px;
       }
     }
