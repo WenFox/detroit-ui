@@ -14,7 +14,7 @@ const Gender = () => {
                         Мужчина
                     </div>
                     <div className={styles.preview}>
-                        <img src={male} width={288} height={600} alt=""/>
+                        <img src={male} alt="male" draggable="false"/>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@ const Gender = () => {
                         Женщина
                     </div>
                     <div className={styles.preview}>
-                        <img src={fem} width={288} height={600} alt=""/>
+                        <img src={fem} alt="female" draggable="false"/>
                     </div>
                 </div>
             </div>

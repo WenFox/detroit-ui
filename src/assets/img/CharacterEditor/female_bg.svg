@@ -10,8 +10,8 @@
     <path filter="url(#shadow)" d="M256.8 753H1.46V140.96L141.05 1.37H527.6V613.41L388.01 753H272.28H256.8Z" stroke="#00C8FF" stroke-miterlimit="10"/>
     <path opacity="0.7" d="M272.28 753H388.01L527.6 613.41V1.37H141.05L1.46 140.96V753H256.8" fill="black"/>
     <path opacity="0.5" d="M271.27 753.85H387L526.59 614.26V2.22H140.04L0.450001 141.81V753.85H255.79" fill="black"/>
-    <g opacity="0.6">
-        <path filter="url(#shadow)" opacity="0.6" d="M527.6 1.37V54.13L89 54.1L141.73 1.37H527.6Z" stroke="#00C8FF" stroke-miterlimit="10"/>
+    <g opacity="1">
+        <path d="M527.6 1.37V54.13L89 54.1L141.73 1.37H527.6Z" stroke="#00C8FF" stroke-miterlimit="10"/>
     </g>
     <path opacity="0.04" d="M527.6 1.37L398.75 291.28H527.6V1.37Z" fill="white"/>
     <path opacity="0.04" d="M1.46 753V387.92L259.16 753H1.46Z" fill="white"/>

@@ -1,19 +1,22 @@
+@import "../../assets/variables";
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   position: relative;
 }
 
-.block{
+.block {
   width: 100%;
   position: relative;
   padding-bottom: 2px;
   margin-right: 5px;
-  &:last-child{
+
+  &:last-child {
     margin-right: 0;
   }
-  &:after{
+
+  &:after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -26,53 +29,89 @@
     box-shadow: 0 0 5px #00c8ff;
   }
 
-  .serverName{
+  .account {
+    margin: 20px 0;
+  }
+
+  .serverName {
     display: block;
     width: 200px;
     margin-left: auto;
     text-align: center;
-    &:before{
+
+    &:before {
       display: inline-block;
       height: 100%;
       vertical-align: middle;
       content: "";
     }
-    h1{
+
+    h1 {
       font-family: "GothamProMedium", serif;
-      font-size : 37px;
-      line-height : 45px;
+      font-size: 37px;
+      line-height: 45px;
       color: white;
     }
-    h2{
+
+    h2 {
       font-family: "GothamPro", serif;
       color: white;
       font-size: 23px;
     }
+
+    @media(max-width: $HIGH_WIDTH) {
+      h1 {
+        font-size: 31px;
+      }
+      h2 {
+        font-size: 19px;
+      }
+    }
+    @media(max-width: $MEDIUM_WIDTH) {
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 17px;
+      }
+    }
+    @media(max-width: $LOW_WIDTH) {
+      h1 {
+        font-size: 25px;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
   }
 }
-.menu{
+
+.menu {
   display: flex;
   justify-content: space-between;
   align-self: flex-end;
-  //margin: 0 -25px;
-  .tab{
+
+  .tab {
     font-family: "GothamPro", serif;
-    font-size : 37px;
-    line-height : 44.64px;
-    color : #57494e;
+    font-size: 37px;
+    line-height: 44px;
+    color: #57494e;
     text-transform: uppercase;
     margin: 0 12px;
     background: transparent;
-    &:hover{
+
+    &:hover {
       color: white;
       text-shadow: 0 0 5px white, 0 0 10px white;
       transition: color .5s, text-shadow .5s;
     }
-    &.active{
+
+    &.active {
       position: relative;
       color: white;
       text-shadow: 0 0 5px white, 0 0 10px white;
-      &:after{
+
+      &:after {
         position: absolute;
         bottom: -2px;
         display: block;
@@ -84,6 +123,28 @@
         box-shadow: 0 0 5px white;
         content: "";
       }
+    }
+
+    @media(max-width: $HIGH_WIDTH) {
+      font-size: 31px;
+      margin: 0 10px;
+    }
+    @media(max-width: $MEDIUM_WIDTH) {
+      font-size: 28px; /*0.75*/
+      margin: 0 9px;
+    }
+    @media(max-width: $HD_WIDTH) {
+      font-size: 26px; /*0.75*/
+      margin: 0 8px;
+      line-height: 38px;
+    }
+    @media(max-width: $LOW_WIDTH) {
+      font-size: 26px;
+      margin: 0 6px;
+    }
+    @media(max-width: $ULTRA_LOW_WIDTH) {
+      font-size: 16px;
+      margin: 0 5px;
     }
 
   }

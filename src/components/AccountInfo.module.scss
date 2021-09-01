@@ -1,10 +1,12 @@
+@import "../assets/variables";
+
 $MIDDLE_MAX_HEIGHT: 820px;
 
 .accountInfo {
   display: inline-block;
-  background: #000000 center / cover url("../assets/img/LoginPanel/character-selector/login-bg.svg") no-repeat;
-  border-radius: 10px;
-  padding: 20px;
+  background: black url("../assets/img/LoginPanel/login-bg.svg") center/cover no-repeat;
+  border-radius: 0 10px 10px 0;
+  padding: 10px 20px;
   min-width: 250px;
   max-width: 320px;
   @media (max-height: $MIDDLE_MAX_HEIGHT) {
@@ -17,10 +19,11 @@ $MIDDLE_MAX_HEIGHT: 820px;
     margin: 0 -5px;
 
     .accountPicture {
-      max-height: 128px;
-      max-width: 128px;
+      max-height: 80px;
+      max-width: 80px;
       padding: 0 5px;
       flex: 0 0 auto;
+      object-fit: fill;
 
       img {
         width: 100%;
@@ -39,9 +42,6 @@ $MIDDLE_MAX_HEIGHT: 820px;
       margin-bottom: 5px;
       text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 2px 2px 2px rgba(206, 89, 55, 0);
       overflow: hidden;
-      @media (max-height: $MIDDLE_MAX_HEIGHT) {
-        font-size: 14px;
-      }
     }
 
     .donate {
@@ -50,15 +50,35 @@ $MIDDLE_MAX_HEIGHT: 820px;
       font-family: "Gotham Pro", serif;
       font-size: 15px;
       font-weight: 300;
-      @media (max-height: $MIDDLE_MAX_HEIGHT) {
-        font-size: 13px;
-      }
+
+
       &:after {
         content: url("../assets/img/LoginPanel/character-selector/donate.png");
         max-width: 28px;
         max-height: 28px;
         position: relative;
         top: 7px;
+      }
+    }
+    @media(max-width: $HIGH_WIDTH) {
+      .login {
+        font-size: 16px;
+      }
+      .donate {
+        font-size: 13px;
+      }
+    }
+    @media(max-width: $MEDIUM_WIDTH) {
+      .login{
+        font-size: 15px;
+      }
+      .donate{
+        font-size: 12px;
+      }
+    }
+    @media(max-width: $HD_WIDTH) {
+      .login{
+        font-size: 14px;
       }
     }
   }

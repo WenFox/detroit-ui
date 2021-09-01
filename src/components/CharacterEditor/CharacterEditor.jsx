@@ -11,10 +11,18 @@ const CharacterEditor = ({donate, login}) => {
 
     const [page, setPage] = React.useState(0);
 
+    const getCurrentPage = () => {
+        switch (page)
+        {
+            case 0: return <Gender/>;
+            default : return null;
+        }
+    }
+
     return (
         <div className={styles.wrapper}>
             <Header donate={donate} login={login} page={page} setPage={setPage}/>
-            <Gender/>
+            {getCurrentPage()}
         </div>
     );
 }

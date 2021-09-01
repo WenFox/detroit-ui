@@ -9,8 +9,8 @@
     <path filter="url(#shadow)" d="M12 194.64V613.41L1.26001 602.67V205.43L12 194.64Z" stroke="#00C8FF" stroke-miterlimit="10"/>
     <path filter="url(#shadow)" d="M282.8 753H538.14V140.96L398.55 1.37H12V613.41L151.59 753H267.32H282.8Z" stroke="#00C8FF" stroke-miterlimit="10"/>
     <path opacity="0.7" d="M267.32 753H151.59L12 613.41V1.37H398.55L538.14 140.96V753H282.8" fill="black"/>
-    <g opacity="0.6">
-        <path filter="url(#shadow)" opacity="0.6" d="M12.5 1.87V54.63H451.07C433.503 37.05 415.927 19.4733 398.34 1.89999L12.5 1.87Z" stroke="#00C8FF" stroke-miterlimit="10"/>
+    <g opacity="1">
+        <path d="M12.5 1.87V54.63H451.07C433.503 37.05 415.927 19.4733 398.34 1.89999L12.5 1.87Z" stroke="#00C8FF" stroke-miterlimit="10"/>
     </g>
     <path opacity="0.04" d="M12 1.37L140.85 291.28H12V1.37Z" fill="white"/>
     <path opacity="0.04" d="M538.14 753V387.92L280.44 753H538.14Z" fill="white"/>

@@ -17,11 +17,13 @@ const Header = ({login, donate, logo, page, setPage}) => {
     return (
         <div className={styles.header}>
             <div className={styles.block}>
-                <AccountInfo donate={donate} login={login} logo={logo}/>
+                <div className={styles.account}>
+                    <AccountInfo donate={donate} login={login} logo={logo}/>
+                </div>
             </div>
             <div className={styles.menu}>
                 {
-                    pages.map((item, idx) => (<button className={`${styles.tab} ${page === idx ? styles.active : ''}`} onClick={() => setPage(idx)}>{item}</button>))
+                    pages.map((item, idx) => (<button key={idx} className={`${styles.tab} ${page === idx ? styles.active : ''}`} onClick={() => setPage(idx)}>{item}</button>))
                 }
             </div>
             <div className={styles.block}>

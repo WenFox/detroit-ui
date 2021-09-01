@@ -1,3 +1,4 @@
+@import "../../assets/variables";
 
 .gender
 {
@@ -12,44 +13,80 @@
   height: 754px;
   transition: transform ease-in-out .3s;
   transform: translate3d(0,0,0);
+  flex: 0 0 auto;
   &:hover{
-
     transform: translateY(-20px);
   }
+  @media(max-width: $HIGH_WIDTH) {
+    width: 450px;
+    height: 629px;
+  }
+  @media(max-width: $MEDIUM_WIDTH) {
+    width: 405px;
+    height: 566px;
+  }
+  @media(max-width: $HD_WIDTH) {
+    width: 360px;
+    height: 503px;
+  }
+  @media(max-width: $LOW_WIDTH) {
+    width: 290px;
+    height: 402px;
+  }
+
 }
 .title{
+  width: 80%;
   font-family: "GothamPro", serif;
   font-size: 40px;
   color: white;
   text-transform: uppercase;
+  padding-top: 1.5%;
   text-shadow: 0 0 5px white, 0 0 10px white;
+  @media(max-width: $HIGH_WIDTH) {
+    font-size: 34px;
+  }
+  @media(max-width: $MEDIUM_WIDTH) {
+    font-size: 30px;
+  }
+  @media(max-width: $HD_WIDTH) {
+    font-size: 27px;
+  }
+  @media(max-width: $LOW_WIDTH) {
+    font-size: 22px;
+  }
 }
 
 .male, .female
 {
   width: 100%;
   height: 100%;
-  padding-top: 10px;
+  text-align: center;
 
 }
 .male
 {
   background: url("../../assets/img/CharacterEditor/male_bg.svg") center/contain no-repeat;
   .title{
-    margin-left: 100px;
+    margin-right: auto;
   }
 }
 .female{
   background: url("../../assets/img/CharacterEditor/female_bg.svg") center/contain no-repeat;
   .title
   {
-    margin-left: 200px;
+    margin-left: auto;
   }
 }
 
 .preview{
   text-align: center;
-  margin-top: 40px;
+  height: calc(100% - 40px);
+  padding: 40px 0;
+  img{
+    object-fit: contain;
+    height: 100%;
+  }
 }
 
 
