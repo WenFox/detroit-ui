@@ -13,6 +13,10 @@ export const playerEvents = (dispatch, getState) => {
         dispatch(showCharacterSelector(data));
     });
 
+    EventManager.on('showCharacterEditor', () => {
+
+    });
+
     EventManager.on('closeLoginPanel', () => {
         dispatch(hideAuthorization());
     });

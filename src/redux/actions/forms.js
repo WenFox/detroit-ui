@@ -1,6 +1,7 @@
 import constants from "../constants";
 import Authorization from "../../pages/Authorization";
 import CharacterSelector from "../../pages/SelectCharacter/CharacterSelector";
+import CharacterEditor from "../../components/CharacterEditor/CharacterEditor";
 
 
 export const setForm = (formName) => ({
@@ -16,6 +17,11 @@ export const showAuthorization = () => ({
 export const showCharacterSelector = (data) => ({
    type: constants.SET_FORM,
    payload: <CharacterSelector data={data}/>
+});
+
+export const showCharacterEditor = (login, donate) => ({
+    type: constants.SET_FORM,
+    payload: <CharacterEditor />
 });
 
 export const hideAuthorization = () => ({

@@ -5,6 +5,7 @@ import styles from "./CharacterEditor.module.scss";
 
 import Header from "./Header";
 import Gender from "./Gender";
+import Parent from "./Parent";
 
 
 const CharacterEditor = ({donate, login}) => {
@@ -15,6 +16,7 @@ const CharacterEditor = ({donate, login}) => {
         switch (page)
         {
             case 0: return <Gender/>;
+            case 1: return <Parent/>
             default : return null;
         }
     }
