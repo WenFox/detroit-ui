@@ -1,4 +1,5 @@
 import styles from "./Character.module.scss";
+import EventManager from "../../bridge/bridge";
 
 const EmptySlot = ({available}) =>{
     return (
@@ -28,7 +29,7 @@ const EmptySlot = ({available}) =>{
                 <div className={styles.create}>
                     {
                         available ? (
-                            <button>
+                            <button onClick={() => EventManager.callServer('newCharacter')}>
                                 <div className={styles.createButton}>Создать</div>
                             </button>
                         ) : (

@@ -1,5 +1,5 @@
 import EventManager from "./bridge";
-import {hideAuthorization, showCharacterSelector} from "../redux/actions/forms";
+import {hideAuthorization, showCharacterEditor, showCharacterSelector} from "../redux/actions/forms";
 import {closeDialog, showMessageBox} from "../redux/actions/dialogs";
 import bridge from "./bridge";
 import {initDialogs} from "./dialogs";
@@ -13,8 +13,8 @@ export const playerEvents = (dispatch, getState) => {
         dispatch(showCharacterSelector(data));
     });
 
-    EventManager.on('showCharacterEditor', () => {
-
+    EventManager.on('showCharacterEditor', (login,donate, initData) => {
+        dispatch(showCharacterEditor(login,donate, initData));
     });
 
     EventManager.on('closeLoginPanel', () => {
@@ -22,7 +22,6 @@ export const playerEvents = (dispatch, getState) => {
     });
 
     EventManager.on('showMessageBox', (dialog, data) => {
-        console.log(dialog, data);
         dispatch(showMessageBox(dialog, data));
     });
 

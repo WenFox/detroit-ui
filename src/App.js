@@ -5,6 +5,7 @@ import 'macro-css';
 import {useSelector} from "react-redux";
 
 import EventManager from "./bridge/bridge";
+import CharacterEditor from "./components/CharacterEditor/CharacterEditor";
 
 window.EventManager = EventManager;
 
@@ -13,7 +14,9 @@ function App() {
     const forms = useSelector(({forms}) => forms);
     const dialogs = useSelector(({dialogs}) => dialogs)
     return (
+
         <div className="App">
+            {/*<CharacterEditor donate={500} login="XXNinteenBoy2008"/>*/}
             {
                 forms.map((form, index) => <div key={index}>{form}</div>)
             }

@@ -19,9 +19,9 @@ export const showCharacterSelector = (data) => ({
    payload: <CharacterSelector data={data}/>
 });
 
-export const showCharacterEditor = (login, donate) => ({
+export const showCharacterEditor = (login, donate, initData) => ({
     type: constants.SET_FORM,
-    payload: <CharacterEditor />
+    payload: <CharacterEditor login={login} donate={donate} initData={initData}/>
 });
 
 export const hideAuthorization = () => ({

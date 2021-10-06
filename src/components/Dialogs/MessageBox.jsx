@@ -19,7 +19,7 @@ const MessageBox = ({children, title, button1, button2, dialogId, data}) => {
                         <button className={styles.button} onClick={(event) => {event.preventDefault(); EventManager.call('onDialogResponse',dialogId, null, true, data)}}><span>{button1}</span></button>
                         {
                             button2 &&
-                            <button className={styles.button}><span>{button2}</span></button>
+                            <button className={styles.button} onClick={(event) => {event.preventDefault(); EventManager.call('onDialogResponse',dialogId, null, false, data)}}><span>{button2}</span></button>
                         }
                     </div>
                 </div>

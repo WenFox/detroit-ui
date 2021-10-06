@@ -29,6 +29,7 @@
   }
 
   .wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
 
@@ -87,11 +88,16 @@
       width: 100%;
       height: 80%;
       margin-bottom: 2%;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      //display: flex;
+      //justify-content: center;
+      //flex-wrap: wrap;
       padding: 37px 8% 10px;
-      overflow: auto;
+      //overflow: auto;
+      .container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
       .item {
         cursor: pointer;
@@ -144,11 +150,17 @@
         text-shadow: 0 0 8px #fff;
         font-size: 20px;
         font-family: GothamPro, serif;
+        transition: transform .1s ease-in-out;
 
         &:hover {
           color: #00c8ff;
           text-shadow: 0 0 8px #00c8ff;
           transition: color .1s ease-in-out;
+        }
+        &:active {
+          transition: none;
+          transform: translateY(2px);
+
         }
       }
     }
