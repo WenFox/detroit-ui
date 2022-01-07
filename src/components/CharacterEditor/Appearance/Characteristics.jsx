@@ -7,6 +7,9 @@ import InputSlider from "../../utils/InputSlider";
 
 const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations, setCustomizations}) => {
 
+    /*
+        При добавлении новых характеристик в InputSlider сделать нормальную загрузку текущего значения
+    */
     const items = [
         {
             name: 'Ширина носа',
@@ -135,12 +138,6 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
             type: 1, // miniSlider
             data: ['Зеленый', 'Изумрудный', 'Голубой', 'Синий', 'Шатен', 'Коричневый', 'Карий', 'Темно-серый', 'Серый'],
         },
-        {
-            name: 'Губная помада',
-            key: 'lipsColor',
-            category: 3,
-            type: 1,
-        }
     ];
 
     const onSliderChange = (key, value) => {
@@ -158,6 +155,10 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
             case 'eyeColour': {
                 setCustomizations((prev) => ({...prev, eyeColour: value}));
                 EventManager.callServer('onEyeColourUpdate', value);
+                break;
+            }
+            default: {
+                break;
             }
         }
     }
@@ -182,7 +183,7 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
                    <div className={styles.item} key={item.key}>
                        <div className={styles.name}>{item.name}</div>
                        <div className={styles.inputSlider}>
-                           <InputSlider items={item.data} onChange={(value) => onCustomizationChange(item.key, value)} infinity/>
+                           <InputSlider items={item.data} value={customizations.eyeColour} onChange={(value) => onCustomizationChange(item.key, value)} infinity/>
                        </div>
 
                    </div>

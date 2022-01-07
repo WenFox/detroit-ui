@@ -6,8 +6,10 @@ import 'simplebar/dist/simplebar.min.css';
 import styles from './Appearance.module.scss';
 import Filter from "./Filter";
 import Characteristics from "./Characteristics";
+import Hair from "./Hair";
+import HeadOverlays from "./HeadOverlays";
 
-const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomizations}) => {
+const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomizations, gender, overlay, setOverlay}) => {
     const [tab, setTab] = React.useState(0);
     const [filter, setFilter] = React.useState(0);
 
@@ -33,7 +35,15 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
             <Filter filter={filter} setFilter={setFilter}/>
             <div className={styles.content}>
                 <SimpleBarReact style={{height: '100%'}} autoHide={false}>
-                    <Characteristics filter={filter} faceFeatures={faceFeatures} setFaceFeatures={setFaceFeatures} customizations={customizations} setCustomizations={setCustomizations}/>
+                    {
+                        tab === 0 ? (<Characteristics filter={filter} faceFeatures={faceFeatures}
+                                                      setFaceFeatures={setFaceFeatures} customizations={customizations}
+                                                      setCustomizations={setCustomizations}/>)
+                            :
+                            (tab === 1 ? (<HeadOverlays overlay={overlay} setOverlay={setOverlay}/>) :
+                                <Hair gender={gender} customizations={customizations}
+                                      setCustomizations={setCustomizations}/>)
+                    }
                 </SimpleBarReact>
             </div>
             <div className={styles.footer}>

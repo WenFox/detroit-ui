@@ -6,12 +6,13 @@ import male from "../../assets/img/CharacterEditor/male_prev.png";
 import EventManager from "../../bridge/bridge";
 
 
-const Gender = ({setPage}) => {
+const Gender = ({setPage, setGender}) => {
     return (
         <div className={styles.gender}>
             <div className={styles.block} onClick={() => {
                 EventManager.callServer('onGenderChange', 1);
                 setPage(1);
+                setGender(1);
             }}>
                 <div className={styles.male}>
                     <div className={styles.title}>
@@ -25,6 +26,7 @@ const Gender = ({setPage}) => {
             <div className={styles.block} onClick={() => {
                 EventManager.callServer('onGenderChange', 0)
                 setPage(1);
+                setGender(0);
             }}>
                 <div className={styles.female}>
                     <div className={styles.title}>
