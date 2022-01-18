@@ -147,14 +147,14 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
             arr[key] = value;
             return arr;
         });
-        EventManager.callServer('onFaceFeatureUpdate', key, value);
+        EventManager.callServer('characterEditor.onFaceFeatureUpdate', key, value);
     }
     const onCustomizationChange = (key, value) => {
         switch (key)
         {
             case 'eyeColour': {
                 setCustomizations((prev) => ({...prev, eyeColour: value}));
-                EventManager.callServer('onEyeColourUpdate', value);
+                EventManager.callServer('characterEditor.onEyeColourUpdate', value);
                 break;
             }
             default: {

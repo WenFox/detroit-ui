@@ -71,7 +71,7 @@ const Parent = ({parentsData, setParentData}) => {
     const motherID = mothers.findIndex((item) => item.key === parentsData.mother);
 
     const onSimilarityChange = (value) => {
-        EventManager.callServer('onSimilarityChange', value);
+        EventManager.callServer('characterEditor.onSimilarityChange', value);
 
         setParentData((prev) => ({
             ...prev,
@@ -79,7 +79,7 @@ const Parent = ({parentsData, setParentData}) => {
         }));
     }
     const onSkinChange = (value) => {
-        EventManager.callServer('onSkinChange', value);
+        EventManager.callServer('characterEditor.onSkinChange', value);
 
         setParentData((prev) => ({
             ...prev,
@@ -118,7 +118,7 @@ const Parent = ({parentsData, setParentData}) => {
                             {
                             page === 0 ? (fathers.map((item, index) => <div className={styles.item} key={item.key}
                                                                             onClick={() => {
-                                                                                EventManager.callServer('onChangeFather', item.key);
+                                                                                EventManager.callServer('characterEditor.onChangeFather', item.key);
                                                                                 setParentData((prev) => ({
                                                                                     ...prev,
                                                                                     father: item.key
@@ -131,7 +131,7 @@ const Parent = ({parentsData, setParentData}) => {
                                 />
                             </div>)) : (mothers.map((item, index) => <div className={styles.item} key={item.key}
                                                                           onClick={() => {
-                                                                              EventManager.callServer('onChangeMother', item.key);
+                                                                              EventManager.callServer('characterEditor.onChangeMother', item.key);
                                                                               setParentData((prev) => ({
                                                                                   ...prev,
                                                                                   mother: item.key
@@ -148,10 +148,10 @@ const Parent = ({parentsData, setParentData}) => {
                     </div>
                     <div className={styles.footer}>
                         <div>
-                            <button onClick={() => EventManager.callServer('resetParents')}>Сброс</button>
+                            <button onClick={() => EventManager.callServer('characterEditor.resetParents')}>Сброс</button>
                         </div>
                         <div>
-                            <button onClick={() => EventManager.callServer('randomParents')}>Случайно</button>
+                            <button onClick={() => EventManager.callServer('characterEditor.randomParents')}>Случайно</button>
                         </div>
                     </div>
                 </div>

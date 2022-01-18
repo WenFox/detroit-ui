@@ -10,7 +10,7 @@ const Gender = ({setPage, setGender}) => {
     return (
         <div className={styles.gender}>
             <div className={styles.block} onClick={() => {
-                EventManager.callServer('onGenderChange', 1);
+                EventManager.callServer('characterEditor.onGenderChange', 1);
                 setPage(1);
                 setGender(1);
             }}>
@@ -24,7 +24,7 @@ const Gender = ({setPage, setGender}) => {
                 </div>
             </div>
             <div className={styles.block} onClick={() => {
-                EventManager.callServer('onGenderChange', 0)
+                EventManager.callServer('characterEditor.onGenderChange', 0)
                 setPage(1);
                 setGender(0);
             }}>
