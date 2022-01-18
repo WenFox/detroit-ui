@@ -5,9 +5,6 @@ import {InputSlider} from "../../utils";
 import EventManager from "../../../bridge/bridge";
 import {overlaysName} from "./headOverlaysData";
 
-/*
-    TODO: Убрать макияж, румянец, цвет лица
- */
 
 const HeadOverlays = ({overlay, setOverlay}) => {
 
@@ -65,15 +62,13 @@ const HeadOverlays = ({overlay, setOverlay}) => {
 
     ];
 
-
-
     const onSliderChange = (key, value) => {
         setOverlay((prev) => {
             const arr = Array.from(prev);
             arr[key] = value;
             return arr;
         });
-        EventManager.callServer('onOverlayUpdate', key, value);
+        EventManager.callServer('characterEditor.onOverlayUpdate', key, value);
     }
 
     return (<div>
