@@ -91,10 +91,10 @@ const Parent = ({parentsData, setParentData}) => {
     }, [setParentData]);
 
     React.useEffect(() => {
-        EventManager.on('onParentsReset', onParentsReset);
+        EventManager.on('characterEditor.onParentsReset', onParentsReset);
 
         return () => {
-          EventManager.remove('onParentsReset', onParentsReset);
+          EventManager.remove('characterEditor.onParentsReset', onParentsReset);
         };
     }, [onParentsReset]);
 

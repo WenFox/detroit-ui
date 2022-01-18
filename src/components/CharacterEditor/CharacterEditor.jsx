@@ -22,7 +22,7 @@ const CharacterEditor = ({donate, login, initData}) => {
         TODO: Рандом и сброс внешности персонажа
      */
 
-    const SyncCharacterEditorUI = React.useCallback((json) => {
+    const syncCharacterEditorUI = React.useCallback((json) => {
         const data = JSON.parse(json);
         setParentData(data.parents);
         setFaceFeatures(data.faceFeatures);
@@ -39,9 +39,9 @@ const CharacterEditor = ({donate, login, initData}) => {
     }, [initData]);
 
     React.useEffect(() => {
-        EventManager.on('SyncCharacterEditorUI', SyncCharacterEditorUI);
-        return EventManager.remove('SyncCharacterEditorUI', SyncCharacterEditorUI);
-    }, [SyncCharacterEditorUI]);
+        EventManager.on('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
+        return EventManager.remove('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
+    }, [syncCharacterEditorUI]);
 
     const getCurrentPage = () => {
         switch (page) {
