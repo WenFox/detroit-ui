@@ -1,18 +1,27 @@
 .appearance {
-  margin: 30px;
-  width: 518px;
+  margin: 30px 0;
+  width: 524px;
   height: 718px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   .header {
+
     width: 100%;
     display: flex;
-    margin: 0 -10px;
+    padding: 0 20px 10px;
+    margin: 0 -15px;
     position: relative;
-    padding-bottom: 10px;
+
+    .separator {
+      height: 100%;
+      width: 2px;
+      border-radius: 25px;
+      padding: 0 -10px;
+      background-color: #00a2ff;
+      box-shadow: 0 0 5px #00a2ff;
+    }
 
     .item {
       color: #57494e;
@@ -33,80 +42,73 @@
         transition: color .5s, text-shadow .5s;
       }
     }
-
-    /*&:after{
-      position: absolute;
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: white;
-      margin: 0 10px;
-      bottom: 0;
-      box-shadow: 0 0 5px white;
-      border-radius: 25px;
-    }*/
   }
-  .content {
-    position: relative;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  flex: 1 0 60%;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  padding-left: 10px;
+
+
+  &:after {
+    position: absolute;
+    content: '';
+    display: block;
     width: 100%;
-    flex: 1 0 60%;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    height: 2px;
+    background: white;
+    bottom: -10px;
+    box-shadow: 0 0 5px white;
+    border-radius: 25px;
+    margin-left: -10px;
+  }
+}
 
+.content1 {
+  padding-right: 10px;
+}
 
-    &:after {
-      position: absolute;
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: white;
-      bottom: -10px;
-      box-shadow: 0 0 5px white;
-      border-radius: 25px;
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    flex: 0 0 auto;
+    height: 22px;
+    text-align: right;
+    padding-left: 20px;
+
+    &:first-child {
+      border-right: 2px solid #aba19f;
+      padding-right: 20px;
     }
   }
 
-  .footer {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+  button {
+    background: transparent;
+    color: #00c8ff;
+    //text-shadow: 0 0 8px #00c8ff;
+    font-size: 20px;
+    font-family: GothamPro, serif;
+    transition: transform .1s ease-in-out;
 
-    div {
-      flex: 0 0 auto;
-      height: 22px;
-      text-align: right;
-      padding-left: 20px;
-
-      &:first-child {
-        border-right: 2px solid #aba19f;
-        padding-right: 20px;
-      }
-    }
-
-    button {
-      background: transparent;
+    &:hover {
       color: #00c8ff;
-      //text-shadow: 0 0 8px #00c8ff;
-      font-size: 20px;
-      font-family: GothamPro, serif;
-      transition: transform .1s ease-in-out;
-
-      &:hover {
-        color: #00c8ff;
-        text-shadow: 0 0 8px #00c8ff;
-        transition: color .1s ease-in-out;
-      }
-
-      &:active {
-        transition: none;
-        transform: translateY(2px);
-        text-shadow: none;
-
-      }
+      text-shadow: 0 0 8px #00c8ff;
+      transition: color .1s ease-in-out;
     }
 
+    &:active {
+      transition: none;
+      transform: translateY(2px);
+      text-shadow: none;
+
+    }
   }
 }
 

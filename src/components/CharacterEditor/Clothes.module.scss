@@ -1,0 +1,77 @@
+@import "Appearance/Appearance.module.scss";
+
+.clothes {
+  margin: 120px 0;
+  width: 518px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    font-family: "GothamPro", serif;
+    font-size: 27px;
+    text-transform: uppercase;
+    background: transparent;
+    text-shadow: 0 0 5px white, 0 0 5px white;
+    color: white;
+
+    &:before {
+      position: absolute;
+      left: 5px;
+      content: '';
+      height: 100%;
+      width: 2px;
+      border-radius: 25px;
+      background-color: #00a2ff;
+      box-shadow: 0 0 5px #00a2ff;
+    }
+  }
+  .content:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 5px white;
+    border-radius: 25px;
+    left: 0;
+  }
+  .content {
+    .item{
+      width: 100%;
+      font-family: "GothamPro", serif;
+      font-size: 24px;
+      color: white;
+      text-shadow: 0 0 5px white;
+      cursor: default;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px 15px 0;
+      &:first-child {
+        padding-top: 15px;
+      }
+      &:hover{
+        color: #00c8ff;
+        text-shadow: 0 0 5px #00c8ff;
+      }
+      .name{
+        flex: 0 0 50%;
+      }
+      .slider{
+        flex: 0 0 25%;
+      }
+      .value{
+        flex: 0 0 10%;
+        text-align: right;
+      }
+      .inputSlider{
+        flex: 0 0 45%;
+      }
+    }
+  }
+}

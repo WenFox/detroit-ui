@@ -1,7 +1,35 @@
 .wrapper{
   width: 100vw;
   height: 100vh;
-  //background: url('../../assets/img/CharacterEditor/bg.jpg') center/cover no-repeat;
-  //background-color: rgba(0,0,0,.3);
+  background: url('../../assets/img/CharacterEditor/bg.jpg') center/cover no-repeat;
+  ////background-color: rgba(0,0,0,.3);
   position: fixed;
+}
+
+.nextButton{
+  display: block;
+  position: absolute;
+  height: 56px;
+  bottom: 25px;
+  right: 25px;
+  background: transparent;
+  span{
+    display: inline-block;
+    height: 100%;
+    vertical-align: text-bottom;
+    font-family: "GothamPro", serif;
+    font-size: 37px;
+    color: white;
+    text-shadow: 0 0 5px white;
+    margin: 0 12px;
+  }
+  &:hover{
+    span{
+      text-shadow: 0 0 5px white, 0 0 10px white;
+    }
+    svg{
+      fill: #00C8FF;
+    }
+  }
+
 }

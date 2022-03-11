@@ -16,11 +16,15 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
     return (
         <div className={styles.appearance}>
             <div className={styles.header}>
+                <div className={styles.separator}>
+                    .
+                </div>
                 <div>
                     <button className={`${styles.item} ${tab === 0 ? styles.active : ''}`}
                             onClick={() => setTab(0)}>Характеристики
                     </button>
                 </div>
+
                 <div>
                     <button className={`${styles.item} ${tab === 1 ? styles.active : ''}`}
                             onClick={() => setTab(1)}>Вид
@@ -35,15 +39,20 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
             <Filter filter={filter} setFilter={setFilter}/>
             <div className={styles.content}>
                 <SimpleBarReact style={{height: '100%'}} autoHide={false}>
-                    {
-                        tab === 0 ? (<Characteristics filter={filter} faceFeatures={faceFeatures}
-                                                      setFaceFeatures={setFaceFeatures} customizations={customizations}
-                                                      setCustomizations={setCustomizations}/>)
-                            :
-                            (tab === 1 ? (<HeadOverlays overlay={overlay} setOverlay={setOverlay}/>) :
-                                <Hair gender={gender} customizations={customizations}
-                                      setCustomizations={setCustomizations}/>)
-                    }
+
+                        <div className={styles.content1}>
+                            {
+                                tab === 0 ? (<Characteristics filter={filter} faceFeatures={faceFeatures}
+                                                              setFaceFeatures={setFaceFeatures}
+                                                              customizations={customizations}
+                                                              setCustomizations={setCustomizations}/>)
+                                    :
+                                    (tab === 1 ? (<HeadOverlays overlay={overlay} setOverlay={setOverlay}/>) :
+                                        <Hair gender={gender} customizations={customizations}
+                                              setCustomizations={setCustomizations}/>)
+                            }
+                        </div>
+
                 </SimpleBarReact>
             </div>
             <div className={styles.footer}>

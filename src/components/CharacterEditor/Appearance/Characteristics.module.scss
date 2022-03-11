@@ -1,8 +1,9 @@
-.wrapper{
+.wrapper {
   width: 100%;
   height: 100%;
 }
-.item{
+
+.item {
   width: 100%;
   font-family: "GothamPro", serif;
   font-size: 24px;
@@ -14,21 +15,26 @@
   align-items: center;
   padding: 15px 15px 15px 0;
   margin-bottom: 10px;
-  &:hover{
+
+  &:hover {
     color: #00c8ff;
     text-shadow: 0 0 5px #00c8ff;
   }
-  .name{
+
+  .name {
     flex: 0 0 50%;
   }
-  .slider{
+
+  .slider {
     flex: 0 0 25%;
   }
-  .value{
+
+  .value {
     flex: 0 0 10%;
     text-align: right;
   }
-  .inputSlider{
+
+  .inputSlider {
     flex: 0 0 45%;
   }
 }
