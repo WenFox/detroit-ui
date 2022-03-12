@@ -55,7 +55,7 @@ const CharacterEditor = ({donate, login, initData}) => {
                                    customizations={customizations} setCustomizations={setCustomizations} gender={gender}
                                    setOverlay={setOverlay} overlay={overlay}/>
             case 3:
-                return <Clothes/>
+                return <Clothes gender={gender}/>
             default :
                 return null;
         }
