@@ -6,23 +6,26 @@ import {maleHairs, femaleHairs, hairColors} from "./hairData";
 import {InputSlider} from "../../utils";
 import EventManager from "../../../bridge/bridge";
 const Hair = ({gender, customizations, setCustomizations}) => {
+
+    const [activeItem, setActiveItem] = React.useState(-1);
+
     return (
         <div className={styles.wrapper}>
-            <div className={styles.item}>
+            <div className={`${styles.item} ${activeItem === 0 ? styles.active : ''}`} onClick={() => setActiveItem(0)}>
                 <div className={styles.name}>Прическа</div>
                 <InputSlider items={Array.from(gender === 1 ? maleHairs : femaleHairs, obj => obj.name)} value={customizations.hair} onChange={(value) => {
                     setCustomizations((prev) => ({...prev, hair: value}));
                     EventManager.callServer('characterEditor.onHairUpdate', value);
                 }}/>
             </div>
-            <div className={styles.item}>
+            <div className={`${styles.item} ${activeItem === 1 ? styles.active : ''}`} onClick={() => setActiveItem(1)}>
                 <div className={styles.name}>Цвет волос</div>
                 <InputSlider items={hairColors}  value={customizations.hairColor} onChange={(value) => {
                     setCustomizations((prev) => ({...prev, hairColor: value}));
                     EventManager.callServer('characterEditor.onHairColourUpdate', value);
                 }}/>
             </div>
-            <div className={styles.item}>
+            <div className={`${styles.item} ${activeItem === 2 ? styles.active : ''}`} onClick={() => setActiveItem(2)}>
                 <div className={styles.name}>Борода</div>
                 <InputSlider items={hairColors} onChange={(value) => {
                     //setCustomizations((prev) => ({...prev, hairColor: value}));

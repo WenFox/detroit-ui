@@ -7,6 +7,7 @@ import InputSlider from "../../utils/InputSlider";
 
 const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations, setCustomizations}) => {
 
+    const [activeItem, setActiveItem] = React.useState(-1);
     /*
         При добавлении новых характеристик в InputSlider сделать нормальную загрузку текущего значения
     */
@@ -150,8 +151,7 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
         EventManager.callServer('characterEditor.onFaceFeatureUpdate', key, value);
     }
     const onCustomizationChange = (key, value) => {
-        switch (key)
-        {
+        switch (key) {
             case 'eyeColour': {
                 setCustomizations((prev) => ({...prev, eyeColour: value}));
                 EventManager.callServer('characterEditor.onEyeColourUpdate', value);
@@ -166,12 +166,12 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
     return (
         <div className={styles.wrapper}>
             {items.filter(cat => cat.category === filter).map((item) => (
-                item.type === 0 ? (<div className={styles.item} key={item.key}>
+                item.type === 0 ? (<div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} onClick={() => setActiveItem(item.key)} key={item.key}>
                     <div className={styles.name}>{item.name}</div>
                     <div className={styles.slider}>
                         <Slider min={-1} max={1} step={0.1} value={faceFeatures[item.key]}
                                 onChange={(value) => {
-                                    onSliderChange(item.key, value)
+                                    onSliderChange(item.key, value);
                                 }}
                                 railStyle={{backgroundColor: "white", height: '2px'}}
                                 trackStyle={{backgroundColor: "white", height: '2px'}}
@@ -180,13 +180,13 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
                     </div>
                     <div className={styles.value}>{faceFeatures[item.key]}</div>
                 </div>) : (
-                   <div className={styles.item} key={item.key}>
-                       <div className={styles.name}>{item.name}</div>
-                       <div className={styles.inputSlider}>
-                           <InputSlider items={item.data} value={customizations.eyeColour} onChange={(value) => onCustomizationChange(item.key, value)} infinity/>
-                       </div>
-
-                   </div>
+                    <div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} key={item.key} onClick={() => setActiveItem(item.key)}>
+                        <div className={styles.name}>{item.name}</div>
+                        <div className={styles.inputSlider}>
+                            <InputSlider items={item.data} value={customizations.eyeColour}
+                                         onChange={(value) => onCustomizationChange(item.key, value)} infinity/>
+                        </div>
+                    </div>
                 )
             ))}
         </div>

@@ -37,4 +37,8 @@
   .inputSlider {
     flex: 0 0 45%;
   }
+  &.active {
+    color: #00c8ff;
+    text-shadow: 0 0 5px #00c8ff;
+  }
 }

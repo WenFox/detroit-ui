@@ -8,6 +8,7 @@ import {overlaysName} from "./headOverlaysData";
 
 const HeadOverlays = ({overlay, setOverlay}) => {
 
+    const [activeItem, setActiveItem] = React.useState(-1);
     const items = [
         {
             key: 0,
@@ -75,9 +76,11 @@ const HeadOverlays = ({overlay, setOverlay}) => {
         <div className={styles.wrapper}>
             {
                 items.map(item => (
-                    <div className={styles.item} key={item.key}>
+                    <div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} key={item.key}
+                         onClick={() => setActiveItem(item.key)}>
                         <div className={styles.name}>{item.name}</div>
-                        <InputSlider items={item.valueNames} value={overlay[item.key]} onChange={(value) => onSliderChange(item.key, value)}/>
+                        <InputSlider items={item.valueNames} value={overlay[item.key]}
+                                     onChange={(value) => onSliderChange(item.key, value)}/>
                     </div>
                 ))
             }
