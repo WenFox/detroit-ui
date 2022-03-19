@@ -18,6 +18,7 @@ const CharacterEditor = ({donate, login, initData}) => {
     const [customizations, setCustomizations] = React.useState({});
     const [gender, setGender] = React.useState(1);
     const [overlay, setOverlay] = React.useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const [clothes, setClothes] = React.useState({legs: 0, shoes: 0, tops: 0, hats: 0});
 
     /*
         TODO: Рандом и сброс внешности персонажа
@@ -29,7 +30,8 @@ const CharacterEditor = ({donate, login, initData}) => {
         setFaceFeatures(data.faceFeatures);
         setCustomizations(data.customizations);
         setOverlay(data.overlay);
-    }, [setParentData, setFaceFeatures, setCustomizations, setOverlay]);
+        setClothes(data.clothes);
+    }, [setParentData, setFaceFeatures, setCustomizations, setOverlay, setClothes]);
 
     React.useEffect(() => {
         const data = JSON.parse(initData);
@@ -37,12 +39,14 @@ const CharacterEditor = ({donate, login, initData}) => {
         setFaceFeatures(data.faceFeatures);
         setCustomizations(data.customizations);
         setOverlay(data.overlay);
+        setClothes(data.clothes);
     }, [initData]);
 
     React.useEffect(() => {
         EventManager.on('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
         return EventManager.remove('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
     }, [syncCharacterEditorUI]);
+
 
     const getCurrentPage = () => {
         switch (page) {
@@ -55,7 +59,7 @@ const CharacterEditor = ({donate, login, initData}) => {
                                    customizations={customizations} setCustomizations={setCustomizations} gender={gender}
                                    setOverlay={setOverlay} overlay={overlay}/>
             case 3:
-                return <Clothes gender={gender}/>
+                return <Clothes gender={gender} clothes={clothes} setClothes={setClothes}/>
             default :
                 return null;
         }

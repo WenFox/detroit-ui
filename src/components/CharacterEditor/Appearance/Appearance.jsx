@@ -8,6 +8,7 @@ import Filter from "./Filter";
 import Characteristics from "./Characteristics";
 import Hair from "./Hair";
 import HeadOverlays from "./HeadOverlays";
+import EventManager from "../../../bridge/bridge";
 
 const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomizations, gender, overlay, setOverlay}) => {
     const [tab, setTab] = React.useState(0);
@@ -36,7 +37,7 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
                     </button>
                 </div>
             </div>
-            <Filter filter={filter} setFilter={setFilter}/>
+            {tab === 0 ? <Filter filter={filter} setFilter={setFilter}/> : <div className={styles.line}></div>}
             <div className={styles.content}>
                 <SimpleBarReact style={{height: '100%'}} autoHide={false}>
 
@@ -57,10 +58,10 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
             </div>
             <div className={styles.footer}>
                 <div>
-                    <button>Сброс</button>
+                    <button onClick={() => EventManager.callServer('characterEditor.resetAppearance')}>Сброс</button>
                 </div>
                 <div>
-                    <button>Случайно</button>
+                    <button onClick={() => EventManager.callServer('characterEditor.randomAppearance')}>Случайно</button>
                 </div>
             </div>
         </div>

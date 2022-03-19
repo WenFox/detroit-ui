@@ -45,6 +45,15 @@
   }
 }
 
+.line {
+  margin: 19px 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 5px white;
+  border-radius: 25px;
+}
+
 .content {
   position: relative;
   width: 100%;

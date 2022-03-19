@@ -55,7 +55,7 @@ const HeadOverlays = ({overlay, setOverlay}) => {
             valueNames: overlaysName.chestHair,
         },
         {
-            key: 10,
+            key: 11,
             name: 'Пятна на теле',
             valueNames: overlaysName.bodyBlemishes,
         },
