@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Hair.module.scss';
+import styles from './Appearance.module.scss';
 
 import {InputSlider} from "../../utils";
 import EventManager from "../../../bridge/bridge";
@@ -76,7 +76,7 @@ const HeadOverlays = ({overlay, setOverlay}) => {
         <div className={styles.wrapper}>
             {
                 items.map(item => (
-                    <div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} key={item.key}
+                    <div className={`${styles.charItem} ${activeItem === item.key ? styles.active : ''}`} key={item.key}
                          onClick={() => setActiveItem(item.key)}>
                         <div className={styles.name}>{item.name}</div>
                         <InputSlider items={item.valueNames} value={overlay[item.key]}

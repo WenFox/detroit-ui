@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './Characteristics.module.scss';
+import styles from './Appearance.module.scss';
 import Slider from "rc-slider";
 import EventManager from "../../../bridge/bridge";
 import InputSlider from "../../utils/InputSlider";
@@ -166,7 +166,7 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
     return (
         <div className={styles.wrapper}>
             {items.filter(cat => cat.category === filter).map((item) => (
-                item.type === 0 ? (<div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} onClick={() => setActiveItem(item.key)} key={item.key}>
+                item.type === 0 ? (<div className={`${styles.charItem} ${activeItem === item.key ? styles.active : ''}`} onClick={() => setActiveItem(item.key)} key={item.key}>
                     <div className={styles.name}>{item.name}</div>
                     <div className={styles.slider}>
                         <Slider min={-1} max={1} step={0.1} value={faceFeatures[item.key]}
@@ -180,7 +180,7 @@ const Characteristics = ({filter, faceFeatures, setFaceFeatures, customizations,
                     </div>
                     <div className={styles.value}>{faceFeatures[item.key]}</div>
                 </div>) : (
-                    <div className={`${styles.item} ${activeItem === item.key ? styles.active : ''}`} key={item.key} onClick={() => setActiveItem(item.key)}>
+                    <div className={`${styles.charItem} ${activeItem === item.key ? styles.active : ''}`} key={item.key} onClick={() => setActiveItem(item.key)}>
                         <div className={styles.name}>{item.name}</div>
                         <div className={styles.inputSlider}>
                             <InputSlider items={item.data} value={customizations.eyeColour}

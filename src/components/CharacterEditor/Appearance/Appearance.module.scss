@@ -1,3 +1,4 @@
+@import "../../../assets/variables";
 .appearance {
   margin: 30px 0;
   width: 524px;
@@ -42,6 +43,17 @@
         transition: color .5s, text-shadow .5s;
       }
     }
+  }
+  @media screen and (max-width: $LOW_WIDTH) {
+    width: 346px;
+    height: 474px;
+    .header{
+      .item{
+        font-size: 18px;
+        padding: 0 7px;
+      }
+    }
+
   }
 }
 
@@ -105,6 +117,9 @@
     font-size: 20px;
     font-family: GothamPro, serif;
     transition: transform .1s ease-in-out;
+    @media screen and (max-width: $LOW_WIDTH) {
+      font-size: 16px;
+    }
 
     &:hover {
       color: #00c8ff;
@@ -118,6 +133,49 @@
       text-shadow: none;
 
     }
+  }
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.charItem{
+  width: 100%;
+  font-family: "GothamPro", serif;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0 0 5px white;
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px 15px 0;
+  margin-bottom: 10px;
+  &:hover {
+    color: #00c8ff;
+    text-shadow: 0 0 5px #00c8ff;
+  }
+  .name {
+    flex: 0 0 50%;
+  }
+  .slider {
+    flex: 0 0 25%;
+  }
+  .value {
+    flex: 0 0 10%;
+    text-align: right;
+  }
+  .inputSlider {
+    flex: 0 0 45%;
+  }
+  &.active {
+    color: #00c8ff;
+    text-shadow: 0 0 5px #00c8ff;
+  }
+  @media screen and (max-width: $LOW_WIDTH) {
+    font-size: 18px;
   }
 }
 
