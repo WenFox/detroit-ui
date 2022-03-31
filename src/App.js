@@ -16,7 +16,7 @@ function App() {
 
         <div className="App">
             {
-                forms.map((form, index) => <div key={index}>{form}</div>)
+                forms.map((form, index) => <div className="Form" key={index}>{form}</div>)
             }
             {
                 dialogs

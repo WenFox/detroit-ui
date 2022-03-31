@@ -4,18 +4,18 @@
 {
   display: flex;
   width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: space-evenly;
+  flex-grow: 3;
 }
 .block{
   width: 539px;
   height: 754px;
-  transition: transform ease-in-out .3s;
+  transition: transform ease-in-out .2s;
   transform: translate3d(0,0,0);
   flex: 0 0 auto;
   &:hover{
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   @media(max-width: $HIGH_WIDTH) {
     width: 450px;
