@@ -62,7 +62,10 @@ const Character = ({Name, LastLogin, Level, BankMoney, Money, Exp, Faction, Job,
                         <button onClick={deleteCharacter}><img src={btnDelete} alt="delete"/></button>
                     </div>
                     <div className={styles.play}>
-                        <button onClick={() => {EventManager.callServer('startPlayAtCharacter', Name)}}>
+                        <button onClick={() => {
+                            EventManager.call('CharacterSelector.setCharacterLoading', true);
+                            EventManager.callServer('startPlayAtCharacter', Name);
+                        }}>
                             <div className={styles.createButton}>Играть</div>
                         </button>
                     </div>

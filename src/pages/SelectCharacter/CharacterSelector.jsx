@@ -23,8 +23,8 @@ const CharacterSelector = ({data}) => {
     }, []);
 
     React.useEffect(() => {
-        EventManager.on('setCharacterLoading', setCharacterLoading);
-        return () => (EventManager.remove('setCharacterLoading', setCharacterLoading));
+        EventManager.on('CharacterSelector.setCharacterLoading', setCharacterLoading);
+        return () => (EventManager.remove('CharacterSelector.setCharacterLoading', setCharacterLoading));
     }, [setCharacterLoading]);
 
     const {Login, Donate, FreeSlots, CharacterList} = JSON.parse(data);
