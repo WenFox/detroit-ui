@@ -13,7 +13,7 @@ export const playerEvents = (dispatch, getState) => {
         dispatch(showCharacterSelector(data));
     });
 
-    EventManager.on('showCharacterEditor', (login,donate, initData) => {
+    EventManager.on('CharacterEditor.show', (login,donate, initData) => {
         dispatch(showCharacterEditor(login,donate, initData));
     });
 

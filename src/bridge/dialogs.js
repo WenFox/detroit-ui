@@ -1,6 +1,7 @@
 
 let dialogIds = {
     DELETE_CHARACTER:0,
+    INFO:1
 };
 
 export const initDialogs = (data) => {
@@ -20,6 +21,17 @@ export const dialogs = (dialog, data) => {
                 data: data,
             };
         }
+        case dialogIds.INFO: {
+            return {
+                dialogId: dialog,
+                title: data.title,
+                text: data.text,
+                button1: data.button1,
+                button2: data.button2,
+                data: data
+            }
+        }
+
         default: {
             return {};
         }

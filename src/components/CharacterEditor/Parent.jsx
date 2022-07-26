@@ -92,6 +92,7 @@ const Parent = ({parentsData, setParentData}) => {
 
     React.useEffect(() => {
         EventManager.on('characterEditor.onParentsReset', onParentsReset);
+        EventManager.callServer('characterEditor.setCameraPosition', 0);
 
         return () => {
           EventManager.remove('characterEditor.onParentsReset', onParentsReset);

@@ -9,6 +9,8 @@ import Parent from "./Parent";
 import Appearance from "./Appearance/Appearance";
 import EventManager from "../../bridge/bridge";
 import Clothes from "./Clothes";
+import Road from "./Road/Road";
+import {Loading} from "../utils";
 
 const CharacterEditor = ({donate, login, initData}) => {
 
@@ -19,6 +21,9 @@ const CharacterEditor = ({donate, login, initData}) => {
     const [gender, setGender] = React.useState(1);
     const [overlay, setOverlay] = React.useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const [clothes, setClothes] = React.useState({legs: 0, shoes: 0, tops: 0, hats: 0});
+    const [firstName, setFirstName] = React.useState();
+    const [lastName, setLastName] = React.useState();
+    const [isLoading, setIsLoading] = React.useState(false);
 
     /*
         TODO: Рандом и сброс внешности персонажа
@@ -33,6 +38,10 @@ const CharacterEditor = ({donate, login, initData}) => {
         setClothes(data.clothes);
     }, [setParentData, setFaceFeatures, setCustomizations, setOverlay, setClothes]);
 
+    const setIsLoadingFromClient = React.useCallback((loading) => {
+        setIsLoading(loading);
+    }, [setIsLoading]);
+
     React.useEffect(() => {
         const data = JSON.parse(initData);
         setParentData(data.parents);
@@ -44,8 +53,15 @@ const CharacterEditor = ({donate, login, initData}) => {
 
     React.useEffect(() => {
         EventManager.on('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
-        return EventManager.remove('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
-    }, [syncCharacterEditorUI]);
+        EventManager.on('characterEditor.setIsLoading', setIsLoadingFromClient);
+        return () => {
+            EventManager.remove('characterEditor.syncCharacterEditorUI', syncCharacterEditorUI);
+            EventManager.on('characterEditor.setIsLoading', setIsLoadingFromClient);
+        }
+
+
+
+    }, [syncCharacterEditorUI, setIsLoadingFromClient]);
 
 
     const getCurrentPage = () => {
@@ -60,27 +76,41 @@ const CharacterEditor = ({donate, login, initData}) => {
                                    setOverlay={setOverlay} overlay={overlay}/>
             case 3:
                 return <Clothes gender={gender} clothes={clothes} setClothes={setClothes}/>
+            case 4: return <Road fistName={firstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName}/>
             default :
                 return null;
         }
     }
     const onNextPageClick = () => {
-        setPage(oldPage => {
-            if (oldPage < 4)
-                return oldPage + 1
-            else
-                return oldPage
-        });
+        if(page < 4)
+        {
+            setPage((oldPage) => ++oldPage)
+        }
+        else {
+            //TODO:Загрузка во время проверки!
+            setIsLoading(true);
+            const regex = new RegExp("[A-Z][a-z]{3,10}");
+            /*if(!regex.test(firstName))
+            {
+                alert("Имя должно начинаться с заглавной буквы");
+            }*/
+            EventManager.callServer('characterEditor.checkAvailableName', firstName, lastName);
+        }
+
     }
     //TODO:Добавить тень SVG и плавную анимацию
     return (
         <div className={styles.wrapper}>
+            {
+                isLoading && <Loading/>
+            }
             <Header donate={donate} login={login} page={page} setPage={setPage}/>
             {getCurrentPage()}
             {
                 page !== 0 && <button className={styles.nextButton} onClick={onNextPageClick}>
                 <span>
-                    Далее
+                    {page < 4 ?  "Далее" : "Создать"}
+
                 </span>
                     <svg width="27" height="56" viewBox="0 0 27 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

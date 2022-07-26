@@ -28,6 +28,7 @@ const Clothes = ({gender, clothes, setClothes}) => {
 
     React.useEffect(() => {
         EventManager.on('characterEditor.onClothesUpdate', onClothesUpdate);
+        EventManager.callServer('characterEditor.setCameraPosition', 0);
 
         return () => {
             EventManager.remove('characterEditor.onClothesUpdate', onClothesUpdate);
@@ -35,7 +36,6 @@ const Clothes = ({gender, clothes, setClothes}) => {
     }, [onClothesUpdate]);
 
     const onClothesChange = (bodyPart, value) => {
-        console.log('onClothesChange');
         EventManager.callServer('characterEditor.onClothesChange', bodyPart, value);
     };
     return (

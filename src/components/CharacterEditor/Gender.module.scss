@@ -1,22 +1,25 @@
 @import "../../assets/variables";
 
-.gender
-{
+.gender {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
   flex-grow: 3;
 }
-.block{
+
+.block {
   width: 539px;
   height: 754px;
   transition: transform ease-in-out .2s;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
+  cursor: pointer;
   flex: 0 0 auto;
-  &:hover{
+
+  &:hover {
     transform: translateY(-10px);
   }
+
   @media(max-width: $HIGH_WIDTH) {
     width: 450px;
     height: 629px;
@@ -35,7 +38,8 @@
   }
 
 }
-.title{
+
+.title {
   width: 80%;
   font-family: "GothamPro", serif;
   font-size: 40px;
@@ -57,33 +61,35 @@
   }
 }
 
-.male, .female
-{
+.male, .female {
   width: 100%;
   height: 100%;
   text-align: center;
 
 }
-.male
-{
+
+.male {
   background: url("../../assets/img/CharacterEditor/male_bg.svg") center/contain no-repeat;
-  .title{
+
+  .title {
     margin-right: auto;
   }
 }
-.female{
+
+.female {
   background: url("../../assets/img/CharacterEditor/female_bg.svg") center/contain no-repeat;
-  .title
-  {
+
+  .title {
     margin-left: auto;
   }
 }
 
-.preview{
+.preview {
   text-align: center;
   height: calc(100% - 40px);
   padding: 40px 0;
-  img{
+
+  img {
     object-fit: contain;
     height: 100%;
   }

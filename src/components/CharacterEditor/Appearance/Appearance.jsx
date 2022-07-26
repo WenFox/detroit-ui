@@ -10,9 +10,22 @@ import Hair from "./Hair";
 import HeadOverlays from "./HeadOverlays";
 import EventManager from "../../../bridge/bridge";
 
-const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomizations, gender, overlay, setOverlay}) => {
+const Appearance = ({
+                        faceFeatures,
+                        setFaceFeatures,
+                        customizations,
+                        setCustomizations,
+                        gender,
+                        overlay,
+                        setOverlay
+                    }) => {
     const [tab, setTab] = React.useState(0);
     const [filter, setFilter] = React.useState(0);
+
+
+    React.useEffect(() => {
+        EventManager.callServer('characterEditor.setCameraPosition', 1);
+    }, []);
 
     return (
         <div className={styles.appearance}>
@@ -37,22 +50,24 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
                     </button>
                 </div>
             </div>
-            {tab === 0 ? <Filter filter={filter} setFilter={setFilter}/> : <div className={styles.line}></div>}
+            {tab === 0 ? <Filter filter={filter} setFilter={setFilter}/> : <div className={styles.line}/>}
             <div className={styles.content}>
                 <SimpleBarReact style={{height: '100%'}} autoHide={false}>
 
-                        <div className={styles.content1}>
-                            {
-                                tab === 0 ? (<Characteristics filter={filter} faceFeatures={faceFeatures}
-                                                              setFaceFeatures={setFaceFeatures}
-                                                              customizations={customizations}
-                                                              setCustomizations={setCustomizations}/>)
-                                    :
-                                    (tab === 1 ? (<HeadOverlays overlay={overlay} setOverlay={setOverlay}/>) :
-                                        <Hair gender={gender} customizations={customizations}
-                                              setCustomizations={setCustomizations}/>)
-                            }
-                        </div>
+                    <div className={styles.content1}>
+                        {
+                            tab === 0 ? (<Characteristics filter={filter} faceFeatures={faceFeatures}
+                                                          setFaceFeatures={setFaceFeatures}
+                                                          customizations={customizations}
+                                                          setCustomizations={setCustomizations}/>)
+                                :
+                                (tab === 1 ? (
+                                        <HeadOverlays overlay={overlay} setOverlay={setOverlay} gender={gender}/>) :
+                                    <Hair gender={gender} customizations={customizations}
+                                          setCustomizations={setCustomizations} overlay={overlay}
+                                          setOverlay={setOverlay}/>)
+                        }
+                    </div>
 
                 </SimpleBarReact>
             </div>
@@ -61,7 +76,8 @@ const Appearance = ({faceFeatures, setFaceFeatures, customizations, setCustomiza
                     <button onClick={() => EventManager.callServer('characterEditor.resetAppearance')}>Сброс</button>
                 </div>
                 <div>
-                    <button onClick={() => EventManager.callServer('characterEditor.randomAppearance')}>Случайно</button>
+                    <button onClick={() => EventManager.callServer('characterEditor.randomAppearance')}>Случайно
+                    </button>
                 </div>
             </div>
         </div>
