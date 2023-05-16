@@ -2,7 +2,7 @@ import React from "react";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import SimpleBarReact from "simplebar-react";
-import 'simplebar/dist/simplebar.min.css';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import styles from "./Parent.module.scss";
 import '../../assets/simplebar.scss';

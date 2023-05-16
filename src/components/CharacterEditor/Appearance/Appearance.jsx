@@ -1,7 +1,7 @@
 import React from "react";
 
 import SimpleBarReact from "simplebar-react";
-import 'simplebar/dist/simplebar.min.css';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import styles from './Appearance.module.scss';
 import Filter from "./Filter";
