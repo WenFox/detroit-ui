@@ -161,12 +161,12 @@ const Parent = ({parentsData, setParentData}) => {
                 <div className={styles.preview}>
                     <div className={styles.img}>
                         <img
-                            src={require(`../../assets/img/CharacterEditor/parents/female_${mothers[motherID].key}.png`).default}
+                            src={require(`../../assets/img/CharacterEditor/parents/female_${mothers[motherID].key}.png`)}
                             alt='mother'/>
                     </div>
                     <div className={styles.img}>
                         <img
-                            src={require(`../../assets/img/CharacterEditor/parents/male_${fathers[fatherID].key}.png`).default}
+                            src={require(`../../assets/img/CharacterEditor/parents/male_${fathers[fatherID].key}.png`)}
                             alt='father'/>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ const Item = ({img, text, active}) => {
         <div className={styles.item}>
             <div className={`${styles.border} ${active ? styles.active : ''}`}>
                 <div className={styles.img}>
-                    <img src={img.default} alt=""/>
+                    <img src={img} alt=""/>
                 </div>
             </div>
             <div className={`${styles.name} ${active ? styles.active : ''}`}>
