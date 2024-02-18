@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/detroit-react.iml" filepath="$PROJECT_DIR$/.idea/detroit-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/detroit-ui-new.iml" filepath="$PROJECT_DIR$/.idea/detroit-ui-new.iml" />
     </modules>
   </component>
 </project>
