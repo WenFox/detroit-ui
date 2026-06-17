@@ -72,7 +72,7 @@ yarn install
 
 Run in Development Mode
 
-bash```
+```bash
 npm start
 ```
 
