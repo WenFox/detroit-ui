@@ -1,8 +1,84 @@
-# Getting Started with Create React App
+# Detroit-UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![GitHub stars](https://img.shields.io/github/stars/WenFox/detroit-ui)](https://github.com/WenFox/detroit-ui/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/WenFox/detroit-ui)](https://github.com/WenFox/detroit-ui/network)
+[![GitHub issues](https://img.shields.io/github/issues/WenFox/detroit-ui)](https://github.com/WenFox/detroit-ui/issues)
 
-## Available Scripts
+**User Interface for Detroit Role Play Server on the RAGE Multiplayer platform.**
+
+This project is the client-side interface built using **React** and the **Create React App** library. It is designed to provide immersive gameplay interaction on the popular Detroit RP server.
+
+---
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Technologies](#-technologies)
+- [Quick Start](#-quick-start)
+- [Available Scripts](#-available-scripts)
+- [Project Structure](#-project-structure)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
+---
+
+## ✨ Features
+
+- 🎮 **RAGE Multiplayer Integration** — UI specifically designed to work with the GTA V multiplayer client
+- ⚛️ **Modern Stack** — Built with React for high performance and modularity
+- 🎨 **Flexible Styling** — Uses SCSS for responsive and maintainable design
+- 🛠 **Development Ready** — Bootstrapped with Create React App for instant setup
+- 📦 **Optimized Build** — Minified and hashed files for production deployment
+
+---
+
+## 🛠 Technologies
+
+![JavaScript](https://img.shields.io/badge/JavaScript-66.9%25-yellow)
+![SCSS](https://img.shields.io/badge/SCSS-32.1%25-pink)
+![React](https://img.shields.io/badge/React-18.x-blue)
+![Create React App](https://img.shields.io/badge/Create_React_App-5.x-green)
+
+- **Frontend:** React 18+
+- **Styling:** SCSS / CSS Modules
+- **Build Tool:** Webpack (via CRA)
+- **Testing:** Jest + React Testing Library
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/WenFox/detroit-ui.git
+
+# Navigate to project folder
+cd detroit-ui
+
+# Install dependencies
+npm install
+# or
+yarn install
+```
+
+Run in Development Mode
+
+bash```
+npm start
+```
+
+Open http://localhost:3000 to view it in your browser. The page will automatically reload when you make changes.
+
+## 📜 Available Scripts
 
 In the project directory, you can run:
 
@@ -39,32 +115,73 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📁 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+detroit-ui/
+├── public/           # Static files
+│   ├── index.html    # Main HTML file
+│   └── ...
+├── src/              # Source code
+│   ├── components/   # React components
+│   ├── styles/       # SCSS files
+│   ├── App.js        # Root component
+│   ├── index.js      # Entry point
+│   └── ...
+├── .gitignore
+├── package.json      # Dependencies and scripts
+├── README.md         # Documentation
+└── ...
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🌐 Deployment
 
-### Analyzing the Bundle Size
+### Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+The `build` folder contains production-ready files. You can deploy them to any static file hosting service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Deployment Resources
 
-### Advanced Configuration
+- [Create React App Deployment Documentation](https://facebook.github.io/create-react-app/docs/deployment)
+- Configure proxy for API requests to the RAGE Multiplayer server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+We welcome contributions to this project! Here's how you can help:
 
-### `npm run build` fails to minify
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📄 License
+
+This project is open-source software. Please check with the author for specific licensing details.
+
+---
+
+## 📞 Contact
+
+- **Server Website:** [detroit-rp.com](http://detroit-rp.com)
+- **Author:** [WenFox](https://github.com/WenFox)
+- **Repository:** [github.com/WenFox/detroit-ui](https://github.com/WenFox/detroit-ui)
+
+---
+
+
+<div align="center">
+  Made with ❤️ for the Detroit Role Play community
+</div>
